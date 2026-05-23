@@ -124,6 +124,8 @@ footer {
 .hero-name,
 .stat-num,
 .exp-role,
+.project-title,
+.project-metric strong,
 .cert-name,
 .edu-degree {
   font-family: var(--font-syne), sans-serif;
@@ -412,6 +414,7 @@ section {
 }
 
 .about,
+.projects,
 .experience,
 .skills,
 .certs,
@@ -613,6 +616,198 @@ section {
   padding: 0.2rem 0.6rem;
   color: var(--muted);
   letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.project-card {
+  --project-accent: var(--accent);
+  position: relative;
+  display: flex;
+  min-height: 560px;
+  flex-direction: column;
+  gap: 1.4rem;
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--project-accent) 11%, transparent), transparent 34%),
+    var(--surface);
+  overflow: hidden;
+  transition: border-color 0.2s, transform 0.2s, background 0.2s;
+}
+
+.project-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 3px;
+  background: var(--project-accent);
+}
+
+.project-card:hover {
+  border-color: color-mix(in srgb, var(--project-accent) 45%, var(--border));
+  transform: translateY(-3px);
+}
+
+.project-topline,
+.project-category,
+.project-detail-label,
+.project-list,
+.project-screens,
+.project-production-link,
+.project-stack-pill,
+.project-metric span {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+}
+
+.project-topline {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--project-accent);
+  text-transform: uppercase;
+}
+
+.project-title {
+  margin: 0 0 0.25rem;
+  font-size: clamp(1.7rem, 3vw, 2.6rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.project-category {
+  margin: 0;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.project-summary {
+  margin: 0;
+  color: var(--text);
+  font-family: var(--font-fraunces), serif;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+.project-production-link {
+  width: fit-content;
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--project-accent) 42%, var(--border));
+  color: var(--project-accent);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.project-production-link:hover {
+  border-color: var(--project-accent);
+  color: var(--text);
+}
+
+.project-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  border: 1px solid var(--border);
+  background: var(--border);
+}
+
+.project-metric {
+  min-width: 0;
+  padding: 1rem 0.8rem;
+  background: rgba(10, 10, 8, 0.74);
+}
+
+.project-metric strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: var(--project-accent);
+  font-size: 1.4rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.project-metric span {
+  display: block;
+  color: var(--muted);
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.project-detail-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 1.3rem;
+  align-items: start;
+}
+
+.project-detail-label {
+  margin-bottom: 0.7rem;
+  color: var(--project-accent);
+  text-transform: uppercase;
+}
+
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0;
+  color: var(--muted);
+  list-style: none;
+  line-height: 1.55;
+}
+
+.project-list li {
+  position: relative;
+  padding-left: 1rem;
+}
+
+.project-list li::before {
+  content: "";
+  position: absolute;
+  top: 0.72em;
+  left: 0;
+  width: 5px;
+  height: 1px;
+  background: var(--project-accent);
+}
+
+.project-screens,
+.project-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.project-screens span,
+.project-stack-pill {
+  border: 1px solid color-mix(in srgb, var(--project-accent) 26%, var(--border));
+}
+
+.project-screens span {
+  padding: 0.3rem 0.55rem;
+  color: var(--text);
+  background: color-mix(in srgb, var(--project-accent) 9%, transparent);
+}
+
+.project-stack {
+  margin-top: auto;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--border);
+}
+
+.project-stack-pill {
+  padding: 0.25rem 0.65rem;
+  color: var(--muted);
   text-transform: uppercase;
 }
 
@@ -887,6 +1082,7 @@ section {
   .about-grid,
   .contact-inner,
   .exp-item,
+  .projects-grid,
   .skills-grid,
   .certs-grid {
     grid-template-columns: 1fr;
@@ -903,6 +1099,14 @@ section {
 
   .edu-card,
   .site-footer {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card {
+    min-height: auto;
+  }
+
+  .project-detail-grid {
     grid-template-columns: 1fr;
   }
 

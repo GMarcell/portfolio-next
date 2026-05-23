@@ -1,0 +1,275 @@
+export const navLinks = [
+  { href: "#about", label: "About" },
+  { href: "#projects", label: "Projects" },
+  { href: "#experience", label: "Experience" },
+  { href: "#skills", label: "Skills" },
+  { href: "#contact", label: "Contact" },
+];
+
+export const stats = [
+  { value: "3+", label: "Years Experience" },
+  { value: "4", label: "Companies" },
+  { value: "5+", label: "Certifications" },
+  { value: "100+", label: "Projects Shipped" },
+];
+
+export const stack = [
+  "React.js",
+  "Next.js",
+  "TypeScript",
+  "Tailwind CSS",
+  "Sass",
+  "Scrum",
+];
+
+export const tickerItems = [
+  "React.js",
+  "Next.js",
+  "TypeScript",
+  "Tailwind CSS",
+  "Sass",
+  "Agile / Scrum",
+  "Responsive UI",
+  "Full Stack",
+];
+
+export const highlights = [
+  {
+    code: "01",
+    title: "Performance-focused",
+    text: "Building fast, cross-browser compatible, production-grade web apps.",
+  },
+  {
+    code: "02",
+    title: "Design-to-code",
+    text: "Translating wireframes and polished mockups into crisp, usable UI.",
+  },
+  {
+    code: "03",
+    title: "Agile practitioner",
+    text: "Comfortable collaborating in fast-moving Scrum teams with shared ownership.",
+  },
+  {
+    code: "04",
+    title: "Growth trajectory",
+    text: "Progressed quickly into larger feature ownership and senior-track expectations.",
+  },
+];
+
+export const projects = [
+  {
+    number: "01",
+    year: "2024",
+    title: "MediBook",
+    category: "Healthcare Appointment Platform",
+    accent: "#d6b35a",
+    tone: "gold",
+    productionHref: "https://medibook-grand.vercel.app",
+    summary:
+      "A healthcare appointment platform for finding doctors by specialty, viewing real-time availability, and booking visits without phone calls.",
+    screens: ["Search", "Doctor Listing", "Doctor Profile", "Booking Flow", "Dashboard", "Admin"],
+    requirements: [
+      "Specialty, location, and availability filters",
+      "Three-step booking flow with Zod validation",
+      "Patient auth, cancellation, and rescheduling",
+    ],
+    metrics: [
+      { value: "24+", label: "Screens" },
+      { value: "98", label: "Lighthouse" },
+      { value: "0.8s", label: "Load Target" },
+    ],
+    stack: ["Next.js", "TypeScript", "Tailwind CSS", "TanStack Query", "NextAuth.js"],
+  },
+  {
+    number: "02",
+    year: "2024",
+    title: "FinTrack",
+    category: "Personal Finance Dashboard",
+    accent: "#e1c16e",
+    tone: "gold",
+    productionHref: "https://fintrack-grand.vercel.app",
+    summary:
+      "A personal finance dashboard that visualises income, expenses, and savings goals with local-first data storage and themeable analytics.",
+    screens: ["Overview", "Transactions", "Budget Goals", "Analytics", "Settings"],
+    requirements: [
+      "Income and expense transaction management",
+      "Animated charts, tooltips, and count-up stats",
+      "Dark/light mode plus CSV export",
+    ],
+    metrics: [
+      { value: "6", label: "Chart Types" },
+      { value: "12", label: "Categories" },
+      { value: "42kb", label: "Bundle Target" },
+    ],
+    stack: ["React", "Recharts", "Sass", "Context API", "date-fns"],
+  },
+  {
+    number: "03",
+    year: "2023",
+    title: "Shopwave",
+    category: "Animated E-Commerce Storefront",
+    accent: "#c9963e",
+    tone: "gold",
+    productionHref: "https://shopwave-grand.vercel.app",
+    summary:
+      "A modern storefront focused on motion, pixel-perfect design translation, product discovery, cart behavior, and checkout flow polish.",
+    screens: ["Homepage", "Product Listing", "Product Detail", "Cart Drawer", "Checkout", "Success"],
+    requirements: [
+      "Product filters, variants, wishlist, and cart drawer",
+      "Multi-step checkout with mock Stripe UI",
+      "Framer Motion transitions respecting reduced motion",
+    ],
+    metrics: [
+      { value: "30+", label: "Animations" },
+      { value: "8", label: "Pages" },
+      { value: "60fps", label: "Target" },
+    ],
+    stack: ["Next.js", "Framer Motion", "Zustand", "Tailwind CSS", "Stripe UI"],
+  },
+  {
+    number: "04",
+    year: "2023",
+    title: "DesignOS",
+    category: "Component Library & Design System",
+    accent: "#f0cf78",
+    tone: "gold",
+    productionHref: "https://designos-grand.vercel.app",
+    summary:
+      "A reusable React component library with typed APIs, token-based theming, Storybook documentation, and interaction test coverage.",
+    screens: ["Primitives", "Layout", "Feedback", "Navigation", "Overlays", "Data"],
+    requirements: [
+      "Forty-plus accessible, fully typed components",
+      "CSS variable theming for light, dark, and brand tokens",
+      "Storybook docs, Chromatic checks, and Vitest coverage",
+    ],
+    metrics: [
+      { value: "40+", label: "Components" },
+      { value: "94%", label: "Coverage" },
+      { value: "18kb", label: "Gzipped" },
+    ],
+    stack: ["React", "TypeScript", "Storybook", "Vitest", "tsup"],
+  },
+  {
+    number: "05",
+    year: "2022",
+    title: "WeatherNow",
+    category: "Minimal Weather Application",
+    accent: "#b98a2f",
+    tone: "gold",
+    productionHref: "https://weathernow-grand.netlify.app",
+    summary:
+      "A polished weather app with live OpenWeather data, geolocation, city search, saved recents, and pure CSS weather animations.",
+    screens: ["Current", "Forecast", "Hourly", "Search", "Error States"],
+    requirements: [
+      "Current weather and five-day forecast from API data",
+      "Geolocation, autocomplete, and recent searches",
+      "Animated condition icons with reduced-motion support",
+    ],
+    metrics: [
+      { value: "5", label: "Forecast Days" },
+      { value: "0.6s", label: "Load Target" },
+      { value: "100", label: "Lighthouse" },
+    ],
+    stack: ["React", "OpenWeather API", "CSS Modules", "Axios", "Netlify"],
+  },
+];
+
+export const experiences = [
+  {
+    period: "Jul 2024 - Present",
+    company: "Rata.id",
+    location: "South Jakarta",
+    role: "Full Stack Engineer",
+    description:
+      "Building and maintaining the company's web presence with React.js, shipping new features, improving performance, and keeping production experiences reliable across browsers.",
+    tags: ["React.js", "Full Stack", "Performance", "Production"],
+  },
+  {
+    period: "Mar 2023 - Jul 2024",
+    company: "Merkle Innovation",
+    location: "Indonesia",
+    role: "Frontend Developer to Senior Track",
+    description:
+      "Translated design mockups into responsive interfaces and took on more ownership across feature delivery, UI architecture, and collaboration inside a Scrum workflow.",
+    tags: ["React.js", "UI Architecture", "Scrum", "Tailwind CSS"],
+  },
+  {
+    period: "Aug 2020 - Present",
+    company: "GPIB Yudea",
+    location: "Tangerang",
+    role: "IT Technician",
+    description:
+      "Managed AV and live-streaming operations for weekly services, coordinating people, hardware, and software to keep broadcasts smooth and dependable.",
+    tags: ["AV Production", "Live Streaming", "Team Coordination"],
+  },
+  {
+    period: "Mar 2021 - Feb 2023",
+    company: "Universitas Pelita Harapan",
+    location: "Tangerang",
+    role: "Administrative Officer",
+    description:
+      "Handled institution-wide survey data and supported outreach logistics, balancing operational detail with communication across academic and marketing teams.",
+    tags: ["Data Management", "Marketing", "Accreditation"],
+  },
+];
+
+export const skillGroups = [
+  {
+    title: "Frontend Core",
+    items: [
+      { name: "React.js", value: "95%" },
+      { name: "Next.js", value: "90%" },
+      { name: "JavaScript", value: "92%" },
+      { name: "TypeScript", value: "80%" },
+      { name: "HTML / CSS", value: "97%" },
+    ],
+  },
+  {
+    title: "Styling and UI",
+    items: [
+      { name: "Tailwind CSS", value: "93%" },
+      { name: "Sass / SCSS", value: "88%" },
+      { name: "Responsive Design", value: "95%" },
+      { name: "CSS Animations", value: "82%" },
+      { name: "Cross-browser", value: "90%" },
+    ],
+  },
+  {
+    title: "Process and Tools",
+    items: [
+      { name: "Agile / Scrum", value: "90%" },
+      { name: "Git / GitHub", value: "88%" },
+      { name: "Figma", value: "78%" },
+      { name: "Python", value: "65%" },
+      { name: "C++", value: "60%" },
+    ],
+  },
+];
+
+export const certifications = [
+  { code: "WD", name: "Responsive Web Design", issuer: "freeCodeCamp" },
+  { code: "RJ", name: "Membuat Website dengan ReactJS", issuer: "Dicoding Indonesia" },
+  { code: "PY", name: "Python Programming", issuer: "Certification Authority" },
+  { code: "CP", name: "C++ Programming", issuer: "Certification Authority" },
+];
+
+export const contactLinks = [
+  {
+    href: "mailto:grand1310marcell@gmail.com",
+    label: "Email",
+    value: "grand1310marcell@gmail.com",
+    code: "EM",
+  },
+  {
+    href: "tel:08872059062",
+    label: "Mobile",
+    value: "0887 205 9062",
+    code: "PH",
+  },
+  {
+    href: "https://www.linkedin.com/in/grandmarcell",
+    label: "LinkedIn",
+    value: "linkedin.com/in/grandmarcell",
+    code: "IN",
+  },
+];
