@@ -1,5 +1,6 @@
 export const navLinks = [
   { href: "#about", label: "About" },
+  { href: "#hire-fit", label: "Hire Fit" },
   { href: "#projects", label: "Projects" },
   { href: "#experience", label: "Experience" },
   { href: "#skills", label: "Skills" },
@@ -8,9 +9,9 @@ export const navLinks = [
 
 export const stats = [
   { value: "3+", label: "Years Experience" },
-  { value: "4", label: "Companies" },
-  { value: "5+", label: "Certifications" },
-  { value: "100+", label: "Projects Shipped" },
+  { value: "5", label: "Showcase Builds" },
+  { value: "95+", label: "Performance Target" },
+  { value: "4", label: "Team Environments" },
 ];
 
 export const stack = [
@@ -31,6 +32,8 @@ export const tickerItems = [
   "Agile / Scrum",
   "Responsive UI",
   "Full Stack",
+  "Performance",
+  "Design Systems",
 ];
 
 export const highlights = [
@@ -56,6 +59,24 @@ export const highlights = [
   },
 ];
 
+export const hiringReasons = [
+  {
+    code: "01",
+    title: "Fast onboarding",
+    text: "Comfortable jumping into React and Next.js codebases, reading existing patterns, and shipping without needing weeks of hand-holding.",
+  },
+  {
+    code: "02",
+    title: "Product-minded UI",
+    text: "I care about what the interface helps users accomplish, not just whether the component matches the mockup.",
+  },
+  {
+    code: "03",
+    title: "Reliable collaborator",
+    text: "Used to Scrum delivery, cross-functional communication, production deadlines, and practical tradeoffs with designers and backend teams.",
+  },
+];
+
 export const projects = [
   {
     number: "01",
@@ -67,6 +88,8 @@ export const projects = [
     productionHref: "https://medibook-grand.vercel.app",
     summary:
       "A healthcare appointment platform for finding doctors by specialty, viewing real-time availability, and booking visits without phone calls.",
+    impact:
+      "Shows I can handle sensitive, high-trust workflows with clear forms, accessibility, validation, and dashboard complexity.",
     screens: ["Search", "Doctor Listing", "Doctor Profile", "Booking Flow", "Dashboard", "Admin"],
     requirements: [
       "Specialty, location, and availability filters",
@@ -90,6 +113,8 @@ export const projects = [
     productionHref: "https://fintrack-grand.vercel.app",
     summary:
       "A personal finance dashboard that visualises income, expenses, and savings goals with local-first data storage and themeable analytics.",
+    impact:
+      "Demonstrates data-heavy UI thinking, chart readability, state management, empty states, and privacy-first product decisions.",
     screens: ["Overview", "Transactions", "Budget Goals", "Analytics", "Settings"],
     requirements: [
       "Income and expense transaction management",
@@ -113,6 +138,8 @@ export const projects = [
     productionHref: "https://shopwave-grand.vercel.app",
     summary:
       "A modern storefront focused on motion, pixel-perfect design translation, product discovery, cart behavior, and checkout flow polish.",
+    impact:
+      "Proves Figma-to-code precision, motion taste, mobile commerce UX, and the ability to make common flows feel premium.",
     screens: ["Homepage", "Product Listing", "Product Detail", "Cart Drawer", "Checkout", "Success"],
     requirements: [
       "Product filters, variants, wishlist, and cart drawer",
@@ -136,6 +163,8 @@ export const projects = [
     productionHref: "https://designos-grand.vercel.app",
     summary:
       "A reusable React component library with typed APIs, token-based theming, Storybook documentation, and interaction test coverage.",
+    impact:
+      "Signals senior-track engineering habits: reusable APIs, documented components, test coverage, and maintainable design tokens.",
     screens: ["Primitives", "Layout", "Feedback", "Navigation", "Overlays", "Data"],
     requirements: [
       "Forty-plus accessible, fully typed components",
@@ -159,6 +188,8 @@ export const projects = [
     productionHref: "https://weathernow-grand.netlify.app",
     summary:
       "A polished weather app with live OpenWeather data, geolocation, city search, saved recents, and pure CSS weather animations.",
+    impact:
+      "Shows I can make small products feel complete with API resilience, loading states, local persistence, and careful micro-interactions.",
     screens: ["Current", "Forecast", "Hourly", "Search", "Error States"],
     requirements: [
       "Current weather and five-day forecast from API data",

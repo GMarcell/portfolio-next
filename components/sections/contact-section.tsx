@@ -12,9 +12,9 @@ export function ContactSection() {
             something <span className="highlight">great.</span>
           </h2>
           <p className="contact-body">
-            I&apos;m open to frontend, full-stack, or hybrid roles, remote or
-            based in Greater Jakarta. If you&apos;re looking for someone who
-            ships clean code and cares about the details, let&apos;s talk.
+            I&apos;m open to frontend, full-stack, or hybrid roles where React,
+            Next.js, UI quality, and ownership matter. Send me the role, the
+            product, and what success looks like in the first 90 days.
           </p>
 
           <div className="contact-links">
@@ -40,9 +40,9 @@ export function ContactSection() {
         <div className="contact-right" data-reveal>
           <div className="availability-badge">Open to opportunities</div>
           <blockquote className="contact-note">
-            I build interfaces that feel{" "}
-            <strong>fast, purposeful, and polished</strong>. The details are
-            what users remember.
+            I&apos;m at my best on teams that want someone who can{" "}
+            <strong>ship, communicate, and raise the quality bar</strong>{" "}
+            without adding drama to the process.
           </blockquote>
         </div>
       </div>

@@ -1,11 +1,13 @@
 :root {
-  --bg: #0a0a08;
-  --surface: #111110;
-  --border: #222220;
-  --text: #e8e6e0;
-  --muted: #6b6860;
-  --accent: #c8f04a;
-  --accent-2: #f0a83c;
+  --bg: #071225;
+  --surface: #0d1b33;
+  --border: #1e3152;
+  --text: #f3ead3;
+  --muted: #9fa9ba;
+  --accent: #d6b35a;
+  --accent-2: #f0cf78;
+  --accent-rgb: 214, 179, 90;
+  --navy-rgb: 7, 18, 37;
   --grain-opacity: 0.045;
 }
 
@@ -82,7 +84,7 @@ footer {
 .cursor-ring {
   width: 36px;
   height: 36px;
-  border: 1px solid rgba(200, 240, 74, 0.4);
+  border: 1px solid rgba(var(--accent-rgb), 0.42);
   border-radius: 999px;
   transition: transform 0.18s ease-out, width 0.2s, height 0.2s, opacity 0.2s;
 }
@@ -100,7 +102,7 @@ footer {
 .cursor-ring.hover {
   width: 56px;
   height: 56px;
-  border-color: rgba(200, 240, 74, 0.6);
+  border-color: rgba(var(--accent-rgb), 0.68);
 }
 
 .site-nav {
@@ -114,8 +116,8 @@ footer {
   justify-content: space-between;
   padding: 1.5rem 3rem;
   backdrop-filter: blur(12px);
-  background: rgba(10, 10, 8, 0.7);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  background: rgba(var(--navy-rgb), 0.78);
+  border-bottom: 1px solid rgba(var(--accent-rgb), 0.08);
 }
 
 .nav-logo,
@@ -172,7 +174,7 @@ footer {
   display: inline-block;
   border: none;
   background: var(--accent);
-  color: #0a0a08;
+  color: #071225;
   text-decoration: none;
   font-family: var(--font-syne), sans-serif;
   font-weight: 700;
@@ -213,7 +215,7 @@ footer {
   line-height: 1;
   white-space: nowrap;
   user-select: none;
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.04);
+  -webkit-text-stroke: 1px rgba(var(--accent-rgb), 0.06);
 }
 
 .hero-left,
@@ -235,8 +237,8 @@ footer {
   align-items: center;
   gap: 0.6rem;
   padding: 0.35rem 0.8rem;
-  border: 1px solid rgba(200, 240, 74, 0.2);
-  background: rgba(200, 240, 74, 0.08);
+  border: 1px solid rgba(var(--accent-rgb), 0.24);
+  background: rgba(var(--accent-rgb), 0.1);
   color: var(--accent);
   font-size: 11px;
   letter-spacing: 0.1em;
@@ -268,6 +270,9 @@ footer {
 .section-sub,
 .about-body,
 .exp-desc,
+.hire-fit-card p,
+.recruiter-note p,
+.project-impact,
 .contact-body,
 .contact-note {
   font-family: var(--font-fraunces), serif;
@@ -399,7 +404,7 @@ footer {
 }
 
 .stack-pill {
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(var(--accent-rgb), 0.06);
   color: var(--text);
   transition: border-color 0.2s, color 0.2s;
 }
@@ -414,6 +419,7 @@ section {
 }
 
 .about,
+.hire-fit,
 .projects,
 .experience,
 .skills,
@@ -467,6 +473,78 @@ section {
   align-items: start;
 }
 
+.hire-fit {
+  background:
+    linear-gradient(135deg, rgba(var(--accent-rgb), 0.08), transparent 34%),
+    var(--bg);
+}
+
+.hire-fit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  border: 1px solid var(--border);
+  background: var(--border);
+}
+
+.hire-fit-card {
+  min-height: 230px;
+  padding: 1.5rem;
+  background: var(--surface);
+  transition: background 0.2s, transform 0.2s;
+}
+
+.hire-fit-card:hover {
+  background: rgba(var(--accent-rgb), 0.06);
+  transform: translateY(-3px);
+}
+
+.hire-fit-code {
+  margin-bottom: 2.2rem;
+  color: var(--accent);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+}
+
+.hire-fit-card h3 {
+  margin: 0 0 0.7rem;
+  font-family: var(--font-syne), sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: -0.01em;
+}
+
+.hire-fit-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.recruiter-note {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 2rem;
+  margin-top: 1rem;
+  padding: 1.4rem 1.5rem;
+  border: 1px solid rgba(var(--accent-rgb), 0.24);
+  background: rgba(var(--accent-rgb), 0.06);
+}
+
+.recruiter-note span {
+  color: var(--accent);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.recruiter-note p {
+  max-width: 760px;
+  margin: 0;
+  color: var(--text);
+  font-size: 1.1rem;
+  line-height: 1.65;
+}
+
 .about-body {
   color: var(--muted);
   font-size: 1.05rem;
@@ -502,7 +580,7 @@ section {
 .highlight-item:hover,
 .cert-card:hover,
 .contact-link:hover {
-  border-color: rgba(200, 240, 74, 0.3);
+  border-color: rgba(var(--accent-rgb), 0.34);
 }
 
 .highlight-icon,
@@ -512,8 +590,8 @@ section {
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(200, 240, 74, 0.15);
-  background: rgba(200, 240, 74, 0.08);
+  border: 1px solid rgba(var(--accent-rgb), 0.2);
+  background: rgba(var(--accent-rgb), 0.1);
   color: var(--accent);
   font-family: var(--font-syne), sans-serif;
   font-weight: 700;
@@ -567,7 +645,7 @@ section {
   position: absolute;
   inset: 0 auto 0 0;
   width: 0;
-  background: rgba(200, 240, 74, 0.03);
+  background: rgba(var(--accent-rgb), 0.05);
   transition: width 0.3s ease;
 }
 
@@ -697,6 +775,24 @@ section {
   line-height: 1.7;
 }
 
+.project-impact {
+  margin: -0.4rem 0 0;
+  padding-left: 1rem;
+  border-left: 2px solid var(--project-accent);
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.65;
+}
+
+.project-impact strong {
+  color: var(--text);
+  font-family: var(--font-dm-mono), monospace;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .project-production-link {
   width: fit-content;
   padding-bottom: 0.2rem;
@@ -723,7 +819,7 @@ section {
 .project-metric {
   min-width: 0;
   padding: 1rem 0.8rem;
-  background: rgba(10, 10, 8, 0.74);
+  background: rgba(var(--navy-rgb), 0.72);
 }
 
 .project-metric strong {
@@ -918,7 +1014,7 @@ section {
   font-family: var(--font-syne), sans-serif;
   font-size: 8rem;
   font-weight: 800;
-  -webkit-text-stroke: 1px rgba(200, 240, 74, 0.06);
+  -webkit-text-stroke: 1px rgba(var(--accent-rgb), 0.1);
 }
 
 .edu-degree {
@@ -947,7 +1043,7 @@ section {
 }
 
 .contact-link:hover {
-  background: rgba(200, 240, 74, 0.03);
+  background: rgba(var(--accent-rgb), 0.05);
 }
 
 .contact-link-icon {
@@ -1082,6 +1178,7 @@ section {
   .about-grid,
   .contact-inner,
   .exp-item,
+  .hire-fit-grid,
   .projects-grid,
   .skills-grid,
   .certs-grid {
@@ -1108,6 +1205,11 @@ section {
 
   .project-detail-grid {
     grid-template-columns: 1fr;
+  }
+
+  .recruiter-note {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
   }
 
   .site-footer {

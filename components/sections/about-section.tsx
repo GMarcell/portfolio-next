@@ -25,12 +25,13 @@ export function AboutSection() {
             architecture end-to-end. I thrive in{" "}
             <strong>Agile / Scrum environments</strong>, collaborate closely
             with designers and backend teams, and care deeply about building
-            things that feel polished.
+            things that are maintainable after the first release.
           </p>
           <p>
-            Outside of code, I run live-streaming and AV operations for a weekly
-            service, which keeps my coordination and problem-solving instincts
-            sharp.
+            My strongest lane is taking a vague product requirement, clarifying
+            the interaction details, and turning it into a responsive interface
+            that looks sharp, performs well, and does not surprise the rest of
+            the engineering team.
           </p>
         </div>
 

@@ -39,6 +39,10 @@ export function ProjectsSection() {
 
             <p className="project-summary">{project.summary}</p>
 
+            <p className="project-impact">
+              <strong>Hiring signal:</strong> {project.impact}
+            </p>
+
             <a
               href={project.productionHref}
               target="_blank"
