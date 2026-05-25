@@ -85,12 +85,19 @@ export const projects = [
     category: "Healthcare Appointment Platform",
     accent: "#d6b35a",
     tone: "gold",
-    productionHref: "https://medibook-grand.vercel.app",
+    productionHref: "https://medibook9.netlify.app/",
     summary:
       "A healthcare appointment platform for finding doctors by specialty, viewing real-time availability, and booking visits without phone calls.",
     impact:
       "Shows I can handle sensitive, high-trust workflows with clear forms, accessibility, validation, and dashboard complexity.",
-    screens: ["Search", "Doctor Listing", "Doctor Profile", "Booking Flow", "Dashboard", "Admin"],
+    screens: [
+      "Search",
+      "Doctor Listing",
+      "Doctor Profile",
+      "Booking Flow",
+      "Dashboard",
+      "Admin",
+    ],
     requirements: [
       "Specialty, location, and availability filters",
       "Three-step booking flow with Zod validation",
@@ -101,7 +108,13 @@ export const projects = [
       { value: "98", label: "Lighthouse" },
       { value: "0.8s", label: "Load Target" },
     ],
-    stack: ["Next.js", "TypeScript", "Tailwind CSS", "TanStack Query", "NextAuth.js"],
+    stack: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "TanStack Query",
+      "NextAuth.js",
+    ],
   },
   {
     number: "02",
@@ -110,12 +123,18 @@ export const projects = [
     category: "Personal Finance Dashboard",
     accent: "#e1c16e",
     tone: "gold",
-    productionHref: "https://fintrack-grand.vercel.app",
+    productionHref: "https://finnance-tracker-main.netlify.app/",
     summary:
       "A personal finance dashboard that visualises income, expenses, and savings goals with local-first data storage and themeable analytics.",
     impact:
       "Demonstrates data-heavy UI thinking, chart readability, state management, empty states, and privacy-first product decisions.",
-    screens: ["Overview", "Transactions", "Budget Goals", "Analytics", "Settings"],
+    screens: [
+      "Overview",
+      "Transactions",
+      "Budget Goals",
+      "Analytics",
+      "Settings",
+    ],
     requirements: [
       "Income and expense transaction management",
       "Animated charts, tooltips, and count-up stats",
@@ -135,12 +154,19 @@ export const projects = [
     category: "Animated E-Commerce Storefront",
     accent: "#c9963e",
     tone: "gold",
-    productionHref: "https://shopwave-grand.vercel.app",
+    productionHref: "https://shopwave-01.netlify.app/",
     summary:
       "A modern storefront focused on motion, pixel-perfect design translation, product discovery, cart behavior, and checkout flow polish.",
     impact:
       "Proves Figma-to-code precision, motion taste, mobile commerce UX, and the ability to make common flows feel premium.",
-    screens: ["Homepage", "Product Listing", "Product Detail", "Cart Drawer", "Checkout", "Success"],
+    screens: [
+      "Homepage",
+      "Product Listing",
+      "Product Detail",
+      "Cart Drawer",
+      "Checkout",
+      "Success",
+    ],
     requirements: [
       "Product filters, variants, wishlist, and cart drawer",
       "Multi-step checkout with mock Stripe UI",
@@ -160,12 +186,19 @@ export const projects = [
     category: "Component Library & Design System",
     accent: "#f0cf78",
     tone: "gold",
-    productionHref: "https://designos-grand.vercel.app",
+    productionHref: "https://design-os01.netlify.app/",
     summary:
       "A reusable React component library with typed APIs, token-based theming, Storybook documentation, and interaction test coverage.",
     impact:
       "Signals senior-track engineering habits: reusable APIs, documented components, test coverage, and maintainable design tokens.",
-    screens: ["Primitives", "Layout", "Feedback", "Navigation", "Overlays", "Data"],
+    screens: [
+      "Primitives",
+      "Layout",
+      "Feedback",
+      "Navigation",
+      "Overlays",
+      "Data",
+    ],
     requirements: [
       "Forty-plus accessible, fully typed components",
       "CSS variable theming for light, dark, and brand tokens",
@@ -185,7 +218,7 @@ export const projects = [
     category: "Minimal Weather Application",
     accent: "#b98a2f",
     tone: "gold",
-    productionHref: "https://weathernow-grand.netlify.app",
+    productionHref: "https://weather-now001.netlify.app/",
     summary:
       "A polished weather app with live OpenWeather data, geolocation, city search, saved recents, and pure CSS weather animations.",
     impact:
@@ -279,7 +312,11 @@ export const skillGroups = [
 
 export const certifications = [
   { code: "WD", name: "Responsive Web Design", issuer: "freeCodeCamp" },
-  { code: "RJ", name: "Membuat Website dengan ReactJS", issuer: "Dicoding Indonesia" },
+  {
+    code: "RJ",
+    name: "Membuat Website dengan ReactJS",
+    issuer: "Dicoding Indonesia",
+  },
   { code: "PY", name: "Python Programming", issuer: "Certification Authority" },
   { code: "CP", name: "C++ Programming", issuer: "Certification Authority" },
 ];
