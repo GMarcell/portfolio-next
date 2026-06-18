@@ -34,7 +34,7 @@ export default function RootLayout({
       lang="en"
       className={`${syne.variable} ${dmMono.variable} ${fraunces.variable}`}
     >
-      <body>{children}</body>
+      <body className="bg-dark text-content text-sm leading-[1.6]">{children}</body>
     </html>
   );
 }

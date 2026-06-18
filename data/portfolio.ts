@@ -320,7 +320,7 @@ export const contactLinks = [
   {
     href: "",
     label: "Location",
-    value: "Tangerang, Indonesia · Open to relocation — Netherlands 🇳🇱",
+    value: "Tangerang, Indonesia · Open to relocation",
     code: "LC",
   },
 ];
