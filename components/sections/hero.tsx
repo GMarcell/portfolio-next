@@ -35,32 +35,42 @@ export function HeroSection() {
           production ownership, and the kind of UI judgment that makes teams
           easier to trust.
         </p>
-        <div className="flex gap-4 items-center flex-wrap">
+        <div className="items-center flex-wrap">
+          <div className="flex gap-4 mb-2">
+            <a
+              href="#real-work"
+              className="pb-0.5 border-b border-line text-muted no-underline text-xs tracking-[0.06em] uppercase transition-colors duration-200 hover:text-content hover:border-muted"
+            >
+              View Real Works projects
+            </a>
+            <a
+              href="#projects"
+              className="pb-0.5 border-b border-line text-muted no-underline text-xs tracking-[0.06em] uppercase transition-colors duration-200 hover:text-content hover:border-muted"
+            >
+              View Show Case projects
+            </a>
+            <a
+              href="https://github.com/GMarcell"
+              target="_blank"
+              rel="noreferrer"
+              className="text-muted no-underline text-[11px] uppercase tracking-[0.08em] transition-colors duration-200 hover:text-accent"
+            >
+              Github
+            </a>
+            <a
+              href="https://www.linkedin.com/in/grandmarcell"
+              target="_blank"
+              rel="noreferrer"
+              className="pb-0.5 border-b border-line text-muted no-underline text-xs tracking-[0.06em] uppercase transition-colors duration-200 hover:text-content hover:border-muted"
+            >
+              LinkedIn
+            </a>
+          </div>
           <a
             href="#hire-fit"
             className="inline-block border-none bg-accent text-[#071225] no-underline font-syne font-bold tracking-[0.06em] uppercase px-8 py-[0.8rem] text-[13px] transition-all duration-200 hover:bg-accent-2 hover:-translate-y-px"
           >
             Why hire me
-          </a>
-          <a
-            href="#real-work"
-            className="pb-0.5 border-b border-line text-muted no-underline text-xs tracking-[0.06em] uppercase transition-colors duration-200 hover:text-content hover:border-muted"
-          >
-            View Real Works projects
-          </a>
-          <a
-            href="#projects"
-            className="pb-0.5 border-b border-line text-muted no-underline text-xs tracking-[0.06em] uppercase transition-colors duration-200 hover:text-content hover:border-muted"
-          >
-            View Show Case projects
-          </a>
-          <a
-            href="https://www.linkedin.com/in/grandmarcell"
-            target="_blank"
-            rel="noreferrer"
-            className="pb-0.5 border-b border-line text-muted no-underline text-xs tracking-[0.06em] uppercase transition-colors duration-200 hover:text-content hover:border-muted"
-          >
-            LinkedIn
           </a>
         </div>
       </div>

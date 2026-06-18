@@ -242,6 +242,38 @@ export const projects = [
     ],
     stack: ["React", "OpenWeather API", "CSS Modules", "Axios", "Netlify"],
   },
+  {
+    number: "06",
+    year: "2025",
+    title: "Sunday Schedule",
+    category: "Volunteer & Multimedia Team Scheduler",
+    accent: "#3f6b52",
+    tone: "forest",
+    productionHref: "https://multimedia-schedule.netlify.app/",
+    githubLink: "https://github.com/GMarcell/sunday-schedule",
+    summary:
+      "A full-stack scheduling tool that lets church admins manage multimedia volunteers, assign roles like sound, projection, and livestream, and auto-generate conflict-free monthly schedules — replacing group chats and manual spreadsheets.",
+    impact:
+      "Proves end-to-end full-stack ownership: data modeling, auth, role logic, and a UI non-technical volunteers can actually use. Built to solve a real coordination problem and currently used by a real organization, not a tutorial clone.",
+    screens: [
+      "Dashboard",
+      "Members",
+      "Roles",
+      "Service Planner",
+      "Generated Schedule",
+    ],
+    requirements: [
+      "Member directory with roles, qualifications, and availability",
+      "Auto-schedule generator that fairly distributes monthly assignments",
+      "Recurring and one-off service event planning",
+    ],
+    metrics: [
+      { value: "Real", label: "Production Users" },
+      { value: "Solo", label: "Full-Stack Build" },
+      { value: "Auto", label: "Conflict-Free Scheduling" },
+    ],
+    stack: ["Next.js", "TypeScript", "Prisma", "Supabase", "Tailwind CSS"],
+  },
 ];
 
 export const experiences = [
