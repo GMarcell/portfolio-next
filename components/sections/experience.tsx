@@ -2,7 +2,10 @@ import { experiences } from "@/data/portfolio";
 
 export function ExperienceSection() {
   return (
-    <section className="border-t border-line px-12 max-md:px-6 py-28 max-md:py-16" id="experience">
+    <section
+      className="border-t border-line px-12 max-md:px-6 py-28 max-md:py-16"
+      id="experience"
+    >
       <div data-reveal>
         <div className="flex items-center gap-[0.8rem] mb-4 text-accent text-[11px] tracking-[0.12em] uppercase after:flex-1 after:max-w-10 after:h-px after:bg-accent/40">
           Career
@@ -12,7 +15,7 @@ export function ExperienceSection() {
           <br />
           Worked
         </h2>
-        <p className="max-w-[480px] m-0 mb-16 text-muted font-fraunces font-light text-[1.05rem]">
+        <p className="max-w-120 m-0 mb-16 text-muted font-fraunces font-light text-[1.05rem]">
           A track record of building real things that shipped to real users.
         </p>
       </div>
@@ -26,17 +29,28 @@ export function ExperienceSection() {
             data-hover-target="true"
           >
             <div className="relative z-1">
-              <div className="text-muted text-[11px]">{experience.period}</div>
+              <div className="text-content/70 text-[11px]">
+                {experience.period}
+              </div>
               <div className="text-accent text-sm">{experience.company}</div>
-              <div className="text-muted text-[11px]">{experience.location}</div>
+              <div className="text-content/70 text-[11px]">
+                {experience.location}
+              </div>
             </div>
 
             <div className="relative z-1">
-              <div className="mb-[0.8rem] font-syne font-bold text-[1.3rem] tracking-[-0.01em] text-content">{experience.role}</div>
-              <p className="max-w-[560px] text-muted font-fraunces font-light text-base leading-[1.7]">{experience.description}</p>
+              <div className="mb-[0.8rem] font-syne font-bold text-[1.3rem] tracking-[-0.01em] text-content">
+                {experience.role}
+              </div>
+              <p className="max-w-140 text-content/85 font-fraunces font-light text-base leading-[1.7]">
+                {experience.description}
+              </p>
               <div className="flex flex-wrap gap-[0.4rem] mt-4">
                 {experience.tags.map((tag) => (
-                  <span key={tag} className="px-[0.6rem] py-[0.2rem] border border-line text-muted text-[11px] tracking-[0.08em] uppercase">
+                  <span
+                    key={tag}
+                    className="px-[0.6rem] py-[0.2rem] border border-line text-content/70 text-[11px] tracking-[0.08em] uppercase"
+                  >
                     {tag}
                   </span>
                 ))}

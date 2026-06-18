@@ -15,7 +15,7 @@ export function AboutSection() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-[1fr_1.2fr] gap-24 max-md:gap-12" data-reveal>
-        <div className="text-muted font-fraunces font-light text-[1.05rem] leading-[1.8]">
+        <div className="text-content/85 font-fraunces font-light text-[1.05rem] leading-[1.8]">
           <p className="m-0">
             I&apos;m a <strong className="text-content font-normal">Frontend Developer</strong> based in Tangerang,
             Indonesia, currently building production-grade web applications at{" "}
@@ -49,7 +49,7 @@ export function AboutSection() {
               </div>
               <div>
                 <strong className="block mb-[0.2rem] font-syne text-[13px] font-semibold text-content">{highlight.title}</strong>
-                <span className="text-muted text-xs">{highlight.text}</span>
+                <span className="text-content/70 text-xs">{highlight.text}</span>
               </div>
             </div>
           ))}

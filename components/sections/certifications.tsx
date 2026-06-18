@@ -22,7 +22,7 @@ export function CertificationsSection() {
             </div>
             <div>
               <div className="font-syne text-[13px] font-semibold text-content">{certification.name}</div>
-              <div className="text-muted text-[11px]">{certification.issuer}</div>
+              <div className="text-content/70 text-[11px]">{certification.issuer}</div>
             </div>
           </article>
         ))}

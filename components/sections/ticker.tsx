@@ -6,7 +6,7 @@ export function TickerSection() {
       <div className="ticker-inner">
         {[...tickerItems, ...tickerItems].map((item, index) => (
           <span
-            className="inline-flex items-center gap-6 text-muted font-syne font-bold text-[11px] tracking-[0.12em] uppercase after:content-['+'] after:text-accent after:text-[10px]"
+            className="inline-flex items-center gap-6 text-content/75 font-syne font-bold text-[11px] tracking-[0.12em] uppercase after:content-['+'] after:text-accent after:text-[10px]"
             key={`${item}-${index}`}
           >
             {item}

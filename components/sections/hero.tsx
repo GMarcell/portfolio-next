@@ -24,7 +24,7 @@ export function HeroSection() {
           <br />
           <span className="text-accent">Marcell</span>
         </h1>
-        <p className="max-w-105 m-0 mb-12 text-muted font-fraunces font-light text-[1.15rem] leading-[1.7]">
+        <p className="max-w-105 m-0 mb-12 text-content/85 font-fraunces font-light text-[1.15rem] leading-[1.7]">
           <strong className="text-content font-normal">
             Frontend Developer
           </strong>{" "}
@@ -38,7 +38,7 @@ export function HeroSection() {
         <div className="flex gap-4 items-center flex-wrap">
           <a
             href="#hire-fit"
-            className="inline-block border-none bg-accent text-dark no-underline font-syne font-bold tracking-[0.06em] uppercase px-8 py-[0.8rem] text-[13px] transition-all duration-200 hover:bg-accent-2 hover:-translate-y-px"
+            className="inline-block border-none bg-accent text-[#071225] no-underline font-syne font-bold tracking-[0.06em] uppercase px-8 py-[0.8rem] text-[13px] transition-all duration-200 hover:bg-accent-2 hover:-translate-y-px"
           >
             Why hire me
           </a>
@@ -76,7 +76,7 @@ export function HeroSection() {
                 <div className="mb-[0.3rem] text-accent font-syne font-extrabold text-[2.2rem] leading-none">
                   {stat.value}
                 </div>
-                <div className="text-muted text-[11px] tracking-wider uppercase">
+                <div className="text-content/70 text-[11px] tracking-wider uppercase">
                   {stat.label}
                 </div>
               </div>

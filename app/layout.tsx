@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
-import { DM_Mono, Fraunces, Syne } from "next/font/google";
+import { DM_Mono, Fraunces, Syne, Geist } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "@/components/layout/theme-provider";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const syne = Syne({
   subsets: ["latin"],
@@ -32,9 +36,12 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${syne.variable} ${dmMono.variable} ${fraunces.variable}`}
+      className={cn(syne.variable, dmMono.variable, fraunces.variable, "font-sans", "dark", geist.variable)}
+      suppressHydrationWarning
     >
-      <body className="bg-dark text-content text-sm leading-[1.6]">{children}</body>
+      <body className="bg-bg text-content text-sm leading-[1.6]">
+        <ThemeProvider>{children}</ThemeProvider>
+      </body>
     </html>
   );
 }
