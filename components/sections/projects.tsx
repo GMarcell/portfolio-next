@@ -57,14 +57,25 @@ export function ProjectsSection() {
               {project.impact}
             </p>
 
-            <a
-              href={project.productionHref}
-              target="_blank"
-              rel="noreferrer"
-              className="w-fit pb-[0.2rem] border-b project-card-link text-[11px] tracking-[0.08em] uppercase no-underline transition-colors duration-200 hover:text-content"
-            >
-              Live Production / open
-            </a>
+            <div className="flex gap-5">
+              <a
+                href={project.productionHref}
+                target="_blank"
+                rel="noreferrer"
+                className="w-fit pb-[0.2rem] border-b project-card-link text-[11px] tracking-[0.08em] uppercase no-underline transition-colors duration-200 hover:text-content"
+              >
+                Live Production
+              </a>
+
+              <a
+                href={project.githubLink}
+                target="_blank"
+                rel="noreferrer"
+                className="w-fit pb-[0.2rem] border-b project-card-link text-[11px] tracking-[0.08em] uppercase no-underline transition-colors duration-200 hover:text-content"
+              >
+                Github
+              </a>
+            </div>
 
             <div
               className="grid grid-cols-3 gap-px border border-line bg-line"

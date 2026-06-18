@@ -87,6 +87,7 @@ export const projects = [
     accent: "#d6b35a",
     tone: "gold",
     productionHref: "https://medibook9.netlify.app/",
+    githubLink: "https://github.com/GMarcell/medibook",
     summary:
       "A healthcare appointment platform for finding doctors by specialty, viewing real-time availability, and booking visits without phone calls.",
     impact:
@@ -125,6 +126,7 @@ export const projects = [
     accent: "#e1c16e",
     tone: "gold",
     productionHref: "https://finnance-tracker-main.netlify.app/",
+    githubLink: "https://github.com/GMarcell/fintrack",
     summary:
       "A personal finance dashboard that visualises income, expenses, and savings goals with local-first data storage and themeable analytics.",
     impact:
@@ -156,6 +158,7 @@ export const projects = [
     accent: "#c9963e",
     tone: "gold",
     productionHref: "https://shopwave-01.netlify.app/",
+    githubLink: "https://github.com/GMarcell/shopwave",
     summary:
       "A modern storefront focused on motion, pixel-perfect design translation, product discovery, cart behavior, and checkout flow polish.",
     impact:
@@ -188,6 +191,7 @@ export const projects = [
     accent: "#f0cf78",
     tone: "gold",
     productionHref: "https://design-os01.netlify.app/",
+    githubLink: "https://github.com/GMarcell/designos",
     summary:
       "A reusable React component library with typed APIs, token-based theming, Storybook documentation, and interaction test coverage.",
     impact:
@@ -220,6 +224,7 @@ export const projects = [
     accent: "#b98a2f",
     tone: "gold",
     productionHref: "https://weather-now001.netlify.app/",
+    githubLink: "https://github.com/GMarcell/weathernow",
     summary:
       "A polished weather app with live OpenWeather data, geolocation, city search, saved recents, and pure CSS weather animations.",
     impact:
@@ -298,10 +303,18 @@ export const certifications = [
   {
     code: "RJ",
     name: "Membuat Website dengan ReactJS",
+    issuer: "Alterra Academy",
+  },
+  {
+    code: "FE",
+    name: "Fundamental Front-End Web Development",
     issuer: "Dicoding Indonesia",
   },
-  { code: "PY", name: "Python Programming", issuer: "Certification Authority" },
-  { code: "CP", name: "C++ Programming", issuer: "Certification Authority" },
+  {
+    code: "RE",
+    name: "React",
+    issuer: "Hackerank",
+  },
 ];
 
 export const contactLinks = [
