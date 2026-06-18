@@ -8,7 +8,7 @@ export function ProjectsSection() {
       <div data-reveal>
         <div className="section-label">Selected Work</div>
         <h2 className="section-title">
-          Projects with
+          Showcase Project with
           <br />
           Product Shape
         </h2>

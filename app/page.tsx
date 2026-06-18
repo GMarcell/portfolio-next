@@ -1,16 +1,17 @@
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteNav } from "@/components/layout/site-nav";
 import { PortfolioEffects } from "@/components/effects/portfolio-effects";
-import { AboutSection } from "@/components/sections/about-section";
-import { CertificationsSection } from "@/components/sections/certifications-section";
-import { ContactSection } from "@/components/sections/contact-section";
-import { EducationSection } from "@/components/sections/education-section";
-import { ExperienceSection } from "@/components/sections/experience-section";
-import { HireFitSection } from "@/components/sections/hire-fit-section";
-import { HeroSection } from "@/components/sections/hero-section";
-import { ProjectsSection } from "@/components/sections/projects-section";
-import { SkillsSection } from "@/components/sections/skills-section";
-import { TickerSection } from "@/components/sections/ticker-section";
+import { HeroSection } from "@/components/sections/hero";
+import { TickerSection } from "@/components/sections/ticker";
+import { HireFitSection } from "@/components/sections/hire-fit";
+import { AboutSection } from "@/components/sections/about";
+import { ProjectsSection } from "@/components/sections/projects";
+import { ExperienceSection } from "@/components/sections/experience";
+import { SkillsSection } from "@/components/sections/skills";
+import { CertificationsSection } from "@/components/sections/certifications";
+import { EducationSection } from "@/components/sections/education";
+import { ContactSection } from "@/components/sections/contact";
+import RealWork from "@/components/sections/real-work";
 
 export default function Home() {
   return (
@@ -23,6 +24,7 @@ export default function Home() {
         <TickerSection />
         <HireFitSection />
         <AboutSection />
+        <RealWork />
         <ProjectsSection />
         <ExperienceSection />
         <SkillsSection />

@@ -245,7 +245,7 @@ export const experiences = [
     location: "South Jakarta",
     role: "Full Stack Engineer",
     description:
-      "Building and maintaining the company's web presence with React.js, shipping new features, improving performance, and keeping production experiences reliable across browsers.",
+      "Own the frontend across multiple product areas at a dental healthtech company — including a procurement system (7 modules), a scheduling system, and a clinical review module. Led the migration of internal procurement workflows from spreadsheets to a structured web app. Refactored large god components into single-responsibility units, making the codebase readable without a walkthrough.",
     tags: ["React.js", "Full Stack", "Performance", "Production"],
   },
   {
@@ -254,26 +254,8 @@ export const experiences = [
     location: "Indonesia",
     role: "Frontend Developer to Senior Track",
     description:
-      "Translated design mockups into responsive interfaces and took on more ownership across feature delivery, UI architecture, and collaboration inside a Scrum workflow.",
+      "Joined as an intern and was promoted to full-time based on performance. Contributed to the Siloam Hospitals management system — building four core modules: inpatient, outpatient, doctor management, and pharmacy. Worked Figma to production within a three-person frontend team.",
     tags: ["React.js", "UI Architecture", "Scrum", "Tailwind CSS"],
-  },
-  {
-    period: "Aug 2020 - Present",
-    company: "GPIB Yudea",
-    location: "Tangerang",
-    role: "IT Technician",
-    description:
-      "Managed AV and live-streaming operations for weekly services, coordinating people, hardware, and software to keep broadcasts smooth and dependable.",
-    tags: ["AV Production", "Live Streaming", "Team Coordination"],
-  },
-  {
-    period: "Mar 2021 - Feb 2023",
-    company: "Universitas Pelita Harapan",
-    location: "Tangerang",
-    role: "Administrative Officer",
-    description:
-      "Handled institution-wide survey data and supported outreach logistics, balancing operational detail with communication across academic and marketing teams.",
-    tags: ["Data Management", "Marketing", "Accreditation"],
   },
 ];
 
@@ -329,15 +311,62 @@ export const contactLinks = [
     code: "EM",
   },
   {
-    href: "tel:08872059062",
-    label: "Mobile",
-    value: "0887 205 9062",
-    code: "PH",
-  },
-  {
     href: "https://www.linkedin.com/in/grandmarcell",
     label: "LinkedIn",
     value: "linkedin.com/in/grandmarcell",
     code: "IN",
+  },
+  {
+    href: "",
+    label: "Location",
+    value: "Tangerang, Indonesia · Open to relocation — Netherlands 🇳🇱",
+    code: "LC",
+  },
+];
+
+export const realWork = [
+  {
+    number: "01",
+    company: "Rata.id",
+    title: "Procurement system — spreadsheets to web app",
+    period: "2024 – Present",
+    confidential:
+      "Internal company tool — not publicly accessible for confidentiality reasons. Happy to walk through it live in an interview.",
+    summary:
+      "Rata.id's internal procurement workflow lived entirely in spreadsheets. I led the frontend migration to a structured web application covering the full purchase lifecycle — from initial request through to delivery confirmation and vendor performance tracking.",
+    modules: [
+      "Purchase Request",
+      "Quotation Comparison",
+      "Purchase Order",
+      "Payment Request",
+      "Proof of Delivery",
+      "Item Management",
+      "Vendor Management",
+    ],
+    role: "Full frontend ownership. A teammate built and maintained the backend API and PostgreSQL schema.",
+    context:
+      "Delivered across six months while maintaining the existing spreadsheet tooling in parallel and continuing work on other product areas.",
+    stack: ["Next.js", "TypeScript", "Tailwind CSS", "REST API", "PostgreSQL"],
+  },
+  {
+    number: "02",
+    company: "Merkle Innovation · Siloam Hospitals",
+    title: "Hospital management system",
+    period: "2023 – 2024",
+    confidential:
+      "Internal company tool — not publicly accessible for confidentiality reasons. Happy to walk through it live in an interview.",
+    summary:
+      "Built and maintained four core modules of a hospital management system for Siloam Hospitals — one of Indonesia's largest private hospital networks — within a three-person frontend team.",
+    modules: [
+      "Inpatient",
+      "Outpatient",
+      "Doctor Management",
+      "Pharmacy",
+      "Bed Management",
+    ],
+    role: "Frontend implementation from Figma handoffs through to production deployment, working within a Scrum workflow.",
+    context:
+      "Joined as an intern, was promoted to full-time based on performance, and took on increasing module ownership over the engagement.",
+    stack: ["React.js", "TypeScript", "Tailwind CSS", "Figma", "Scrum"],
   },
 ];
