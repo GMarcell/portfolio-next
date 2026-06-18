@@ -6,7 +6,10 @@ export function HeroSection() {
       <div className="hero-bg-text">DEV</div>
 
       <div className="hero-left" data-reveal>
-        <div className="hero-tag">Frontend / Full-stack · Available</div>
+        <div>
+          <div className="hero-tag">Frontend / Full-stack · Available</div>
+          <div className="hero-tag">Open for Relocation</div>
+        </div>
         <h1 className="hero-name">
           Grand
           <br />
@@ -23,9 +26,13 @@ export function HeroSection() {
           <a href="#hire-fit" className="btn-primary">
             Why hire me
           </a>
-          <a href="#projects" className="btn-ghost">
-            View projects
+          <a href="#real-work" className="btn-ghost">
+            View Real Works projects
           </a>
+          <a href="#projects" className="btn-ghost">
+            View Show Case projects
+          </a>
+
           <a
             href="https://www.linkedin.com/in/grandmarcell"
             target="_blank"
