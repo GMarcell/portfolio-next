@@ -281,6 +281,117 @@ export const projects = [
     ],
     stack: ["Next.js", "TypeScript", "Prisma", "Supabase", "Tailwind CSS"],
   },
+  {
+    number: "07",
+    year: "2025",
+    title: "Church Multimedia Scheduler",
+    category: "Volunteer & Multimedia Team Scheduler",
+    accent: "#3f6b52",
+    tone: "forest",
+    productionHref: "https://your-deployed-url.netlify.app/",
+    githubLink: "https://github.com/YOUR_USERNAME/church-multimedia-scheduler",
+    summary:
+      "An automated scheduling tool for church multimedia teams that manages members, defines roles, sets service dates, and generates conflict-free monthly schedules — replacing group chats, manual spreadsheets, and last-minute scrambles.",
+    impact:
+      "Demonstrates full-stack ownership: member/role data modeling, fair workload distribution logic, and recurring event planning built for a real ministry coordination problem, not a tutorial clone.",
+    screens: [
+      "Dashboard",
+      "Members",
+      "Roles",
+      "Service Planner",
+      "Generated Schedule",
+    ],
+    requirements: [
+      "Member directory with availability and contact info",
+      "Role definitions with per-member qualifications (sound, projection, livestream, etc.)",
+      "Recurring and one-off service event planning",
+      "Auto-schedule generator that fairly distributes monthly assignments",
+    ],
+    metrics: [
+      { value: "Auto", label: "Conflict-Free Scheduling" },
+      { value: "Solo", label: "Full-Stack Build" },
+      { value: "Fair", label: "Workload Distribution" },
+    ],
+    stack: ["React", "Node.js", "Supabase", "Prisma", "Tailwind CSS"],
+  },
+  {
+    number: "09",
+    year: "2025",
+    title: "FitTrack",
+    category: "Gamified Fitness Tracker",
+    accent: "#1e3a5f",
+    tone: "navy",
+    productionHref: "https://your-deployed-url.vercel.app/",
+    githubLink: "https://github.com/YOUR_USERNAME/fittrack",
+    summary:
+      "A Solo Leveling-inspired fitness tracker that turns training into a hunter-leveling RPG — 8 tracked stats, AI-generated daily quests, and Groq-powered weekly training plans built around your recent sessions and weakest stats.",
+    impact:
+      "Full-stack build combining a real data model (Prisma/Postgres), auth (NextAuth v5), an AI planning pipeline (Groq/Llama 3.3), and a polished dark-navy UI with charts, view transitions, and a cron-driven quest lifecycle — not a CRUD tutorial.",
+    screens: [
+      "Dashboard",
+      "Stats (Radar + Charts)",
+      "Daily Quests",
+      "Goals",
+      "Benchmarks",
+    ],
+    requirements: [
+      "8-stat hunter system with rank calculation and history tracking",
+      "AI-generated daily quests targeting weakest stats, with accept/fail logic",
+      "Groq-powered weekly training plan generation",
+      "Session, goal, and benchmark tracking with fitness-standard comparisons",
+    ],
+    metrics: [
+      { value: "8", label: "Tracked Hunter Stats" },
+      { value: "AI", label: "Weekly Plan Generation" },
+      { value: "E–S", label: "Rank System" },
+    ],
+    stack: [
+      "Next.js 16",
+      "TypeScript",
+      "Prisma",
+      "PostgreSQL",
+      "Tailwind CSS v4",
+    ],
+  },
+  {
+    number: "XX",
+    year: "2025",
+    title: "LeadFlow",
+    category: "AI-Powered CRM & Lead Management",
+    accent: "#0f2942",
+    tone: "navy",
+    productionHref: "https://your-deployed-url.vercel.app/",
+    githubLink: "https://github.com/YOUR_USERNAME/leadflow",
+    summary:
+      "An AI-powered CRM for small businesses and freelancers — track leads on a drag-and-drop Kanban pipeline, schedule follow-ups, and get AI-generated note summaries and next-step suggestions, without the bloat of enterprise tools.",
+    impact:
+      "Full-stack build covering data modeling, auth, a real-time Kanban pipeline with dnd-kit, analytics dashboards, and a Groq-powered AI layer for note summarization and follow-up suggestions — a complete SaaS-shaped product, not a CRUD demo.",
+    screens: [
+      "Dashboard",
+      "Leads",
+      "Pipeline (Kanban)",
+      "Analytics",
+      "Settings",
+    ],
+    requirements: [
+      "Lead/contact CRUD with deal value, source, and tags",
+      "6-stage Kanban pipeline with drag-and-drop and per-stage value totals",
+      "Follow-up scheduling with due/overdue/upcoming tracking",
+      "AI note summarization and follow-up suggestions via Groq",
+    ],
+    metrics: [
+      { value: "6", label: "Pipeline Stages" },
+      { value: "AI", label: "Note Summarization" },
+      { value: "Real-time", label: "Kanban Drag & Drop" },
+    ],
+    stack: [
+      "Next.js 16",
+      "TypeScript",
+      "Prisma 7",
+      "PostgreSQL",
+      "Tailwind CSS v4",
+    ],
+  },
 ];
 
 export const experiences = [
