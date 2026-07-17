@@ -1,4 +1,6 @@
-import { contactLinks } from "@/data/portfolio";
+import { contactLinks, resumeUrl } from "@/data/portfolio";
+import { ContactForm } from "@/components/contact-form";
+import { DownloadIcon } from "@/components/ui/icons";
 
 export function ContactSection() {
   return (
@@ -6,7 +8,8 @@ export function ContactSection() {
       className="border-t border-line px-12 max-md:px-6 py-28 max-md:py-16 bg-surface"
       id="contact"
     >
-      <div className="grid grid-cols-1 md:grid-cols-[1fr_1.2fr] gap-24 max-md:gap-12 items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.15fr] gap-20 max-lg:gap-12 items-start">
+        {/* ── Left: Intro & links ──────────────────────────────── */}
         <div data-reveal>
           <div className="flex items-center gap-[0.8rem] mb-4 text-accent text-[11px] tracking-[0.12em] uppercase after:flex-1 after:max-w-10 after:h-px after:bg-accent/40">
             Contact
@@ -43,20 +46,32 @@ export function ContactSection() {
                 </div>
               </a>
             ))}
+
+            {/* ── Resume download ─────────────────────────────── */}
+            <a
+              href={resumeUrl}
+              download
+              className="flex items-center gap-4 p-5 border border-accent/30 bg-accent/6 text-content no-underline transition-all duration-200 hover:border-accent/50 hover:bg-accent/10"
+            >
+              <div className="flex shrink-0 items-center justify-center w-8 h-8 border border-accent/20 bg-accent/10 text-accent font-syne font-bold text-xs">
+                <DownloadIcon />
+              </div>
+              <div>
+                <strong className="block mb-[0.2rem] font-syne text-[13px] font-semibold text-content">
+                  Resume
+                </strong>
+                <span className="text-content/70 text-xs">Downloadable PDF</span>
+              </div>
+            </a>
           </div>
         </div>
 
-        <div className="flex flex-col gap-4" data-reveal>
-          <div className="inline-flex items-center gap-[0.6rem] px-[0.8rem] py-[0.35rem] border border-accent/24 bg-accent/10 text-accent text-[11px] tracking-widest uppercase before:w-1.75 before:h-1.75 before:rounded-full before:bg-accent before:animate-[pulse_2s_infinite]">
+        {/* ── Right: Form ─────────────────────────────────────── */}
+        <div>
+          <div className="inline-flex items-center gap-[0.6rem] px-[0.8rem] py-[0.35rem] mb-8 border border-accent/24 bg-accent/10 text-accent text-[11px] tracking-widest uppercase before:w-1.75 before:h-1.75 before:rounded-full before:bg-accent before:animate-[pulse_2s_infinite]">
             Open to opportunities
           </div>
-          <blockquote className="m-0 pl-6 border-l-2 border-accent text-content/80 font-fraunces font-light text-[1.1rem] italic leading-[1.6]">
-            I&apos;m at my best on teams that want someone who can{" "}
-            <strong className="text-content font-normal">
-              ship, communicate, and raise the quality bar
-            </strong>{" "}
-            without adding drama to the process.
-          </blockquote>
+          <ContactForm />
         </div>
       </div>
     </section>

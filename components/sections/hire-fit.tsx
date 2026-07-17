@@ -18,7 +18,11 @@ export function HireFitSection() {
         <p className="max-w-120 m-0 mb-16 text-content/70 font-fraunces font-light text-[1.05rem]">
           I bring the mix hiring teams usually need but rarely find in one
           frontend candidate: clean implementation, visual judgment, product
-          empathy, and steady delivery habits.
+          empathy, and steady delivery habits.{" "}
+          <strong className="text-content font-normal">
+            Open to full-time, contract, and freelance — remote, hybrid, or
+            on-site.
+          </strong>
         </p>
       </div>
 
@@ -51,10 +55,26 @@ export function HireFitSection() {
         <span className="text-accent text-[11px] tracking-[0.12em] uppercase">
           Best fit
         </span>
-        <p className="max-w-190 m-0 text-content font-fraunces font-light text-[1.1rem] leading-[1.65]">
-          Frontend or full-stack product teams building React/Next.js apps where
-          performance, UI polish, ownership, and collaboration matter.
-        </p>
+        <div>
+          <p className="max-w-190 m-0 text-content font-fraunces font-light text-[1.1rem] leading-[1.65]">
+            Frontend or full-stack product teams building React/Next.js apps where
+            performance, UI polish, ownership, and collaboration matter.
+          </p>
+          <div className="flex flex-wrap gap-3 mt-4">
+            <span className="px-3 py-1 border border-accent/20 bg-accent/8 text-accent text-[11px] tracking-[0.08em] uppercase">
+              Open to full-time
+            </span>
+            <span className="px-3 py-1 border border-accent/20 bg-accent/8 text-accent text-[11px] tracking-[0.08em] uppercase">
+              Open to contract
+            </span>
+            <span className="px-3 py-1 border border-accent/20 bg-accent/8 text-accent text-[11px] tracking-[0.08em] uppercase">
+              Open to freelance
+            </span>
+            <span className="px-3 py-1 border border-accent/20 bg-accent/8 text-accent text-[11px] tracking-[0.08em] uppercase">
+              Remote / Hybrid / On-site
+            </span>
+          </div>
+        </div>
       </div>
     </section>
   );

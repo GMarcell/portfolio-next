@@ -1,4 +1,5 @@
-import { stack, stats } from "@/data/portfolio";
+import { resumeUrl, stack, stats } from "@/data/portfolio";
+import { DownloadIcon } from "@/components/ui/icons";
 
 export function HeroSection() {
   return (
@@ -6,7 +7,10 @@ export function HeroSection() {
       className="relative grid grid-cols-1 md:grid-cols-2 items-center min-h-dvh px-12 max-md:px-6 pt-22.5 max-md:pt-20 overflow-hidden border-t-0"
       id="home"
     >
-      <div className="absolute right-[-0.05em] bottom-[-0.1em] text-transparent font-syne font-extrabold text-[clamp(120px,18vw,260px)] leading-none whitespace-nowrap select-none [-webkit-text-stroke:1px_rgba(214,179,90,0.06)]">
+      <div
+        className="absolute right-[-0.05em] bottom-[-0.1em] text-transparent font-syne font-extrabold text-[clamp(120px,18vw,260px)] leading-none whitespace-nowrap select-none"
+        style={{ WebkitTextStroke: "1px color-mix(in srgb, var(--c-accent) 6%, transparent)" } as React.CSSProperties}
+      >
         DEV
       </div>
 
@@ -16,7 +20,7 @@ export function HeroSection() {
             Frontend / Full-stack · Available
           </div>
           <div className="inline-flex items-center gap-[0.6rem] px-[0.8rem] py-[0.35rem] border border-accent/24 bg-accent/10 text-accent text-[11px] tracking-widest uppercase">
-            Open for Relocation
+            Open for Relocation · Remote / Hybrid / On-site
           </div>
         </div>
         <h1 className="m-0 mb-6 font-syne font-extrabold text-[clamp(3rem,6vw,5.5rem)] leading-[0.95] tracking-[-0.03em] text-content">
@@ -36,7 +40,7 @@ export function HeroSection() {
           easier to trust.
         </p>
         <div className="items-center flex-wrap">
-          <div className="flex gap-4 mb-2">
+          <div className="flex gap-4 mb-3">
             <a
               href="#real-work"
               className="pb-0.5 border-b border-line text-muted no-underline text-xs tracking-[0.06em] uppercase transition-colors duration-200 hover:text-content hover:border-muted"
@@ -66,12 +70,22 @@ export function HeroSection() {
               LinkedIn
             </a>
           </div>
-          <a
-            href="#hire-fit"
-            className="inline-block border-none bg-accent text-[#071225] no-underline font-syne font-bold tracking-[0.06em] uppercase px-8 py-[0.8rem] text-[13px] transition-all duration-200 hover:bg-accent-2 hover:-translate-y-px"
-          >
-            Why hire me
-          </a>
+          <div className="flex gap-3 flex-wrap">
+            <a
+              href="#hire-fit"
+              className="inline-block border-none bg-accent text-primary-foreground no-underline font-syne font-bold tracking-[0.06em] uppercase px-8 py-[0.8rem] text-[13px] transition-all duration-200 hover:bg-accent-2 hover:-translate-y-px"
+            >
+              Why hire me
+            </a>
+            <a
+              href={resumeUrl}
+              download
+              className="inline-flex items-center gap-2 border border-accent/40 bg-transparent text-accent no-underline font-syne font-bold tracking-[0.06em] uppercase px-7 py-[0.8rem] text-[13px] transition-all duration-200 hover:bg-accent hover:text-primary-foreground hover:-translate-y-px"
+            >
+              <DownloadIcon />
+              Resume
+            </a>
+          </div>
         </div>
       </div>
 

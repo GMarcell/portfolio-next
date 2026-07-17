@@ -1,6 +1,6 @@
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteNav } from "@/components/layout/site-nav";
-import { PortfolioEffects } from "@/components/effects/portfolio-effects";
+import { PortfolioEffectsWrapper } from "@/components/effects/portfolio-effects-wrapper";
 import { HeroSection } from "@/components/sections/hero";
 import { TickerSection } from "@/components/sections/ticker";
 import { HireFitSection } from "@/components/sections/hire-fit";
@@ -16,10 +16,10 @@ import RealWork from "@/components/sections/real-work";
 export default function Home() {
   return (
     <>
-      <PortfolioEffects />
+      <PortfolioEffectsWrapper />
       <SiteNav />
 
-      <main>
+      <main id="main-content" className="relative z-20">
         <HeroSection />
         <TickerSection />
         <HireFitSection />

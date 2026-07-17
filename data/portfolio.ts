@@ -8,6 +8,8 @@ export const navLinks = [
   { href: "#contact", label: "Contact" },
 ];
 
+export const resumeUrl = "/resume.pdf";
+
 export const stats = [
   { value: "3+", label: "Years Experience" },
   { value: "5", label: "Showcase Builds" },
@@ -75,6 +77,11 @@ export const hiringReasons = [
     code: "03",
     title: "Reliable collaborator",
     text: "Used to Scrum delivery, cross-functional communication, production deadlines, and practical tradeoffs with designers and backend teams.",
+  },
+  {
+    code: "04",
+    title: "Ship-ready & available",
+    text: "Open to full-time, contract, and freelance opportunities — remote, hybrid, or on-site. Ready for interviews and quick to start.",
   },
 ];
 
@@ -283,7 +290,9 @@ export const experiences = [
     location: "South Jakarta",
     role: "Full Stack Engineer",
     description:
-      "Own the frontend across multiple product areas at a dental healthtech company — including a procurement system (7 modules), a scheduling system, and a clinical review module. Led the migration of internal procurement workflows from spreadsheets to a structured web app. Refactored large god components into single-responsibility units, making the codebase readable without a walkthrough.",
+      "Own the frontend across multiple product areas at a dental healthtech company — including a procurement system (7 modules), a scheduling system, and a clinical review module. Led the migration of internal procurement workflows from spreadsheets to a structured web app used by 50+ staff. Refactored large god components into single-responsibility units, making the codebase readable without a walkthrough.",
+    impact:
+      "Delivered 7 procurement modules in 6 months while maintaining existing systems. Reduced onboarding time for new frontend devs by cleaning up monolithic components.",
     tags: ["React.js", "Full Stack", "Performance", "Production"],
   },
   {
@@ -292,7 +301,9 @@ export const experiences = [
     location: "Indonesia",
     role: "Frontend Developer to Senior Track",
     description:
-      "Joined as an intern and was promoted to full-time based on performance. Contributed to the Siloam Hospitals management system — building four core modules: inpatient, outpatient, doctor management, and pharmacy. Worked Figma to production within a three-person frontend team.",
+      "Joined as an intern and was promoted to full-time based on performance. Contributed to the Siloam Hospitals management system — one of Indonesia's largest private hospital networks — building four core modules: inpatient, outpatient, doctor management, and pharmacy. Worked Figma to production within a three-person frontend team.",
+    impact:
+      "Promoted intern-to-full-time within months. Built 4 hospital management modules serving a national hospital network. Consistently delivered Figma-to-production within sprint cycles.",
     tags: ["React.js", "UI Architecture", "Scrum", "Tailwind CSS"],
   },
 ];
@@ -391,7 +402,7 @@ export const realWork = [
     ],
     role: "Full frontend ownership. A teammate built and maintained the backend API and PostgreSQL schema.",
     context:
-      "Delivered across six months while maintaining the existing spreadsheet tooling in parallel and continuing work on other product areas.",
+      "Delivered across six months while maintaining the existing spreadsheet tooling in parallel and continuing work on other product areas. Replaced a manual process used by 50+ staff across multiple clinics.",
     stack: ["Next.js", "TypeScript", "Tailwind CSS", "REST API", "PostgreSQL"],
   },
   {

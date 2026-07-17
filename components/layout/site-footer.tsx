@@ -2,7 +2,7 @@ export function SiteFooter() {
   const footerYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-line flex items-center justify-between px-12 py-8 max-md:flex-col max-md:gap-4 max-md:text-center">
+    <footer className="relative z-20 border-t border-line flex items-center justify-between px-12 py-8 max-md:flex-col max-md:gap-4 max-md:text-center">
       <span className="text-muted text-[11px] tracking-[0.06em]">
         {`\u00A9 ${footerYear} Grand Marcell / Tangerang, Indonesia`}
       </span>

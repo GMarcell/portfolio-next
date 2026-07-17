@@ -45,6 +45,14 @@ export function ExperienceSection() {
               <p className="max-w-140 text-content/85 font-fraunces font-light text-base leading-[1.7]">
                 {experience.description}
               </p>
+              {experience.impact && (
+                <p className="max-w-140 mt-3 pl-4 border-l-2 border-accent text-content/80 font-fraunces font-light text-[0.95rem] leading-[1.65]">
+                  <strong className="text-accent font-dm-mono font-normal text-[11px] tracking-[0.08em] uppercase">
+                    Impact:
+                  </strong>{" "}
+                  {experience.impact}
+                </p>
+              )}
               <div className="flex flex-wrap gap-[0.4rem] mt-4">
                 {experience.tags.map((tag) => (
                   <span

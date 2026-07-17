@@ -10,9 +10,8 @@ export function ThemeToggle() {
   return (
     <div className="flex items-center gap-1.5">
       <span
-        className="text-[10px] leading-none transition-colors duration-200 select-none"
+        className="text-[10px] leading-none transition-colors duration-200 select-none text-content dark:text-muted"
         aria-hidden="true"
-        style={{ color: isDark ? "var(--c-muted)" : "var(--c-content)" }}
       >
         ☀
       </span>
@@ -22,9 +21,8 @@ export function ThemeToggle() {
         aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
       />
       <span
-        className="text-[10px] leading-none transition-colors duration-200 select-none"
+        className="text-[10px] leading-none transition-colors duration-200 select-none text-muted dark:text-content"
         aria-hidden="true"
-        style={{ color: isDark ? "var(--c-content)" : "var(--c-muted)" }}
       >
         ☾
       </span>
