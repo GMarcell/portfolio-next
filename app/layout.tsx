@@ -29,25 +29,25 @@ const siteUrl = "https://grandmarcell.dev";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Grand Marcell | Frontend Developer",
+  title: "Grand Marcell | Fullstack Developer",
   description:
-    "Frontend Developer who turns product ideas and Figma files into fast, polished React experiences. Next.js, TypeScript, and production-grade UI.",
+    "Fullstack Developer who turns product ideas and designs into fast, polished web experiences. Next.js, TypeScript, React, API design, and production-grade full-stack engineering.",
   keywords: [
-    "Frontend Developer",
+    "Fullstack Developer",
     "React",
     "Next.js",
     "TypeScript",
     "Portfolio",
     "Web Developer",
-    "UI Developer",
+    "Full Stack Development",
     "Indonesia",
   ],
   authors: [{ name: "Grand Marcell" }],
   creator: "Grand Marcell",
   openGraph: {
-    title: "Grand Marcell | Frontend Developer",
+    title: "Grand Marcell | Fullstack Developer",
     description:
-      "Frontend Developer who turns product ideas and Figma files into fast, polished React experiences.",
+      "Fullstack Developer who turns product ideas and designs into fast, polished web experiences.",
     url: siteUrl,
     siteName: "Grand Marcell Portfolio",
     locale: "en_US",
@@ -55,9 +55,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Grand Marcell | Frontend Developer",
+    title: "Grand Marcell | Fullstack Developer",
     description:
-      "Frontend Developer who turns product ideas and Figma files into fast, polished React experiences.",
+      "Fullstack Developer who turns product ideas and designs into fast, polished web experiences.",
   },
   robots: {
     index: true,
@@ -72,9 +72,9 @@ const jsonLd = {
   name: "Grand Marcell",
   givenName: "Grand",
   familyName: "Marcell",
-  jobTitle: "Frontend Developer",
+  jobTitle: "Fullstack Developer",
   description:
-    "Frontend Developer who turns product ideas and Figma files into fast, polished React experiences.",
+    "Fullstack Developer who turns product ideas and designs into fast, polished web experiences.",
   url: siteUrl,
   sameAs: [
     "https://github.com/GMarcell",

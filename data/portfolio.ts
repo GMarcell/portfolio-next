@@ -21,22 +21,22 @@ export const stack = [
   "React.js",
   "Next.js",
   "TypeScript",
+  "Node.js",
+  "PostgreSQL",
   "Tailwind CSS",
-  "Sass",
-  "Scrum",
 ];
 
 export const tickerItems = [
   "React.js",
   "Next.js",
   "TypeScript",
-  "Tailwind CSS",
-  "Sass",
-  "Agile / Scrum",
-  "Responsive UI",
+  "Node.js",
+  "PostgreSQL",
+  "Prisma",
+  "REST APIs",
   "Full Stack",
-  "Performance",
-  "Design Systems",
+  "Tailwind CSS",
+  "Agile / Scrum",
 ];
 
 export const highlights = [
@@ -47,8 +47,8 @@ export const highlights = [
   },
   {
     code: "02",
-    title: "Design-to-code",
-    text: "Translating wireframes and polished mockups into crisp, usable UI.",
+    title: "End-to-end ownership",
+    text: "Owning features from database schema and API design through to polished, responsive UI.",
   },
   {
     code: "03",
@@ -57,8 +57,8 @@ export const highlights = [
   },
   {
     code: "04",
-    title: "Growth trajectory",
-    text: "Progressed quickly into larger feature ownership and senior-track expectations.",
+    title: "Full-stack capability",
+    text: "Comfortable across the stack — from PostgreSQL and Prisma to React components and CSS.",
   },
 ];
 
@@ -70,13 +70,13 @@ export const hiringReasons = [
   },
   {
     code: "02",
-    title: "Product-minded UI",
-    text: "I care about what the interface helps users accomplish, not just whether the component matches the mockup.",
+    title: "Full-stack product sense",
+    text: "I think about the whole system — database queries, API contracts, auth, and how the UI connects to it all — not just what the component looks like.",
   },
   {
     code: "03",
     title: "Reliable collaborator",
-    text: "Used to Scrum delivery, cross-functional communication, production deadlines, and practical tradeoffs with designers and backend teams.",
+    text: "Used to Scrum delivery, cross-functional communication, production deadlines, and practical tradeoffs across the full stack.",
   },
   {
     code: "04",
@@ -404,7 +404,7 @@ export const experiences = [
       "Own the frontend across multiple product areas at a dental healthtech company — including a procurement system (7 modules), a scheduling system, and a clinical review module. Led the migration of internal procurement workflows from spreadsheets to a structured web app used by 50+ staff. Refactored large god components into single-responsibility units, making the codebase readable without a walkthrough.",
     impact:
       "Delivered 7 procurement modules in 6 months while maintaining existing systems. Reduced onboarding time for new frontend devs by cleaning up monolithic components.",
-    tags: ["React.js", "Full Stack", "Performance", "Production"],
+    tags: ["React.js", "Full Stack", "PostgreSQL", "REST APIs", "Performance", "Production"],
   },
   {
     period: "Mar 2023 - Jul 2024",
@@ -415,13 +415,13 @@ export const experiences = [
       "Joined as an intern and was promoted to full-time based on performance. Contributed to the Siloam Hospitals management system — one of Indonesia's largest private hospital networks — building four core modules: inpatient, outpatient, doctor management, and pharmacy. Worked Figma to production within a three-person frontend team.",
     impact:
       "Promoted intern-to-full-time within months. Built 4 hospital management modules serving a national hospital network. Consistently delivered Figma-to-production within sprint cycles.",
-    tags: ["React.js", "UI Architecture", "Scrum", "Tailwind CSS"],
+    tags: ["React.js", "TypeScript", "UI Architecture", "REST APIs", "Scrum", "Tailwind CSS"],
   },
 ];
 
 export const skillGroups = [
   {
-    title: "Frontend Core",
+    title: "Frontend & Fullstack Core",
     items: [
       { name: "React.js", value: "95%" },
       { name: "Next.js", value: "90%" },
@@ -438,6 +438,16 @@ export const skillGroups = [
       { name: "Responsive Design", value: "95%" },
       { name: "CSS Animations", value: "82%" },
       { name: "Cross-browser", value: "90%" },
+    ],
+  },
+  {
+    title: "Backend & Database",
+    items: [
+      { name: "Node.js", value: "80%" },
+      { name: "Prisma", value: "75%" },
+      { name: "PostgreSQL", value: "72%" },
+      { name: "Supabase", value: "70%" },
+      { name: "REST API Design", value: "78%" },
     ],
   },
   {
@@ -511,7 +521,7 @@ export const realWork = [
       "Item Management",
       "Vendor Management",
     ],
-    role: "Full frontend ownership. A teammate built and maintained the backend API and PostgreSQL schema.",
+    role: "Owned the entire frontend layer across 7 procurement modules, a scheduling system, and a clinical review module. Collaborated closely on REST API contract design and PostgreSQL schema decisions with the backend teammate to ship a cohesive full-stack product.",
     context:
       "Delivered across six months while maintaining the existing spreadsheet tooling in parallel and continuing work on other product areas. Replaced a manual process used by 50+ staff across multiple clinics.",
     stack: ["Next.js", "TypeScript", "Tailwind CSS", "REST API", "PostgreSQL"],
@@ -532,7 +542,7 @@ export const realWork = [
       "Pharmacy",
       "Bed Management",
     ],
-    role: "Frontend implementation from Figma handoffs through to production deployment, working within a Scrum workflow.",
+    role: "Frontend implementation across 4 hospital management modules from Figma handoffs through to production deployment. Worked closely with backend teams on REST API integration and participated in cross-stack architectural decisions within a three-person frontend team.",
     context:
       "Joined as an intern, was promoted to full-time based on performance, and took on increasing module ownership over the engagement.",
     stack: ["React.js", "TypeScript", "Tailwind CSS", "Figma", "Scrum"],

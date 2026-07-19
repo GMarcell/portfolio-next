@@ -20,8 +20,8 @@ export function ContactSection() {
             something <span className="text-accent">great.</span>
           </h2>
           <p className="max-w-100 m-0 mb-10 text-content/80 font-fraunces font-light text-base leading-[1.7]">
-            I&apos;m open to frontend, full-stack, or hybrid roles where React,
-            Next.js, UI quality, and ownership matter. Send me the role, the
+            I&apos;m open to full-stack roles where React,
+            Next.js, TypeScript, and end-to-end ownership matter. Send me the role, the
             product, and what success looks like in the first 90 days.
           </p>
 

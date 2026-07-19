@@ -17,7 +17,7 @@ export function HeroSection() {
       <div className="relative z-1" data-reveal>
         <div className="flex flex-col gap-3 mb-8">
           <div className="inline-flex items-center gap-[0.6rem] px-[0.8rem] py-[0.35rem] border border-accent/24 bg-accent/10 text-accent text-[11px] tracking-widest uppercase before:w-1.75 before:h-1.75 before:rounded-full before:bg-accent before:animate-[pulse_2s_infinite]">
-            Frontend / Full-stack · Available
+            Fullstack · Available
           </div>
           <div className="inline-flex items-center gap-[0.6rem] px-[0.8rem] py-[0.35rem] border border-accent/24 bg-accent/10 text-accent text-[11px] tracking-widest uppercase">
             Open for Relocation · Remote / Hybrid / On-site
@@ -30,13 +30,13 @@ export function HeroSection() {
         </h1>
         <p className="max-w-105 m-0 mb-12 text-content/85 font-fraunces font-light text-[1.15rem] leading-[1.7]">
           <strong className="text-content font-normal">
-            Frontend Developer
+            Fullstack Developer
           </strong>{" "}
-          who turns product ideas and Figma files into fast, polished React
-          experiences. I bring{" "}
+          who turns product ideas into polished, production-grade web
+          experiences — from API design to responsive UI. I bring{" "}
           <strong className="text-content font-normal">Next.js</strong>,{" "}
           <strong className="text-content font-normal">TypeScript</strong>,
-          production ownership, and the kind of UI judgment that makes teams
+          full-stack ownership, and the kind of product judgment that makes teams
           easier to trust.
         </p>
         <div className="items-center flex-wrap">

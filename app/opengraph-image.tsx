@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Grand Marcell | Frontend Developer";
+export const alt = "Grand Marcell | Fullstack Developer";
 export const size = {
   width: 1200,
   height: 630,
@@ -66,7 +66,7 @@ export default async function Image() {
             letterSpacing: "0.02em",
           }}
         >
-          Frontend Developer · Next.js & React
+          Fullstack Developer · Next.js & React
         </div>
       </div>
     ),
