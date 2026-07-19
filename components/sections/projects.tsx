@@ -18,8 +18,8 @@ export function ProjectsSection() {
           Product Shape
         </h2>
         <p className="max-w-120 m-0 mb-16 text-content/70 font-fraunces font-light text-[1.05rem]">
-          Five showcase builds covering healthcare, finance, commerce, design
-          systems, and live API experiences.
+          Five production-grade full-stack builds — AI-driven pipelines, real-time
+          market data, real production users, and 60+ unit tests.
         </p>
       </div>
 
