@@ -17,8 +17,8 @@ export function PortfolioEffects() {
       return;
     }
 
-    cursor.style.left = `${x}px`;
-    cursor.style.top = `${y}px`;
+    // Use translate3d for GPU-accelerated compositing instead of left/top
+    cursor.style.transform = `translate3d(${x}px, ${y}px, 0)`;
   });
 
   useEffect(() => {
@@ -73,8 +73,8 @@ export function PortfolioEffects() {
       ringRefPosition.current.x += (mouseRef.current.x - ringRefPosition.current.x) * 0.12;
       ringRefPosition.current.y += (mouseRef.current.y - ringRefPosition.current.y) * 0.12;
 
-      ring.style.left = `${ringRefPosition.current.x}px`;
-      ring.style.top = `${ringRefPosition.current.y}px`;
+      // Use translate3d for GPU-accelerated compositing
+      ring.style.transform = `translate3d(${ringRefPosition.current.x}px, ${ringRefPosition.current.y}px, 0)`;
       frameRef.current = window.requestAnimationFrame(animateRing);
     };
 

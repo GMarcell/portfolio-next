@@ -25,7 +25,10 @@ const fraunces = Fraunces({
   display: "swap",
 });
 
+const siteUrl = "https://grandmarcell.dev";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "Grand Marcell | Frontend Developer",
   description:
     "Frontend Developer who turns product ideas and Figma files into fast, polished React experiences. Next.js, TypeScript, and production-grade UI.",
@@ -45,7 +48,7 @@ export const metadata: Metadata = {
     title: "Grand Marcell | Frontend Developer",
     description:
       "Frontend Developer who turns product ideas and Figma files into fast, polished React experiences.",
-    url: "https://grandmarcell.dev",
+    url: siteUrl,
     siteName: "Grand Marcell Portfolio",
     locale: "en_US",
     type: "website",
@@ -72,7 +75,7 @@ const jsonLd = {
   jobTitle: "Frontend Developer",
   description:
     "Frontend Developer who turns product ideas and Figma files into fast, polished React experiences.",
-  url: "https://grandmarcell.dev",
+  url: siteUrl,
   sameAs: [
     "https://github.com/GMarcell",
     "https://www.linkedin.com/in/grandmarcell",

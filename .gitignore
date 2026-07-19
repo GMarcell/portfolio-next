@@ -1,3 +1,5 @@
 /.next
 /node_modules
-/package-lock.json
+
+# Keep lock file for reproducible CI builds
+# /package-lock.json

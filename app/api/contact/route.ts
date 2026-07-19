@@ -1,7 +1,24 @@
 import { getResend } from "@/lib/resend";
+import { checkRateLimit } from "@/lib/rate-limit";
 import { NextRequest, NextResponse } from "next/server";
 
+/* ── Rate-limit config ─────────────────────────────────────── */
+const RATE_LIMIT_MAX = 5; // requests per window
+const RATE_LIMIT_WINDOW = 60; // seconds
+
 /* ── Helpers ───────────────────────────────────────────────── */
+
+/**
+ * Derive a rate-limit key from the request.
+ * Uses the x-forwarded-for header (Vercel/Netlify) or the connecting IP.
+ */
+function getClientIp(request: NextRequest): string {
+  const forwarded = request.headers.get("x-forwarded-for");
+  if (forwarded) {
+    return forwarded.split(",")[0].trim();
+  }
+  return request.headers.get("x-real-ip") || "127.0.0.1";
+}
 
 /** Escape HTML special characters so user input can't break email layout. */
 function escapeHtml(text: string): string {
@@ -15,6 +32,26 @@ function escapeHtml(text: string): string {
 /* ── POST handler ──────────────────────────────────────────── */
 
 export async function POST(request: NextRequest) {
+  // ── Rate limiting ──────────────────────────────────────────
+  const ip = getClientIp(request);
+  const { allowed, remaining, resetAt } = checkRateLimit(ip, {
+    max: RATE_LIMIT_MAX,
+    windowSeconds: RATE_LIMIT_WINDOW,
+  });
+
+  if (!allowed) {
+    return NextResponse.json(
+      { error: "Too many requests. Please try again later." },
+      {
+        status: 429,
+        headers: {
+          "Retry-After": String(Math.ceil((resetAt - Date.now()) / 1000)),
+          "X-RateLimit-Remaining": "0",
+          "X-RateLimit-Reset": String(Math.ceil(resetAt / 1000)),
+        },
+      }
+    );
+  }
   try {
     const body = await request.json();
     const { name, email, message } = body as {

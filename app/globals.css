@@ -17,6 +17,7 @@
 
   --font-syne: var(--font-syne), sans-serif;
   --font-fraunces: var(--font-fraunces), serif;
+  --font-dm-mono: var(--font-dm-mono), monospace;
 }
 
 /* ── Light theme (default) ─────────────────────────────────── */
@@ -104,20 +105,49 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
-/* ── Transition for theme swaps ────────────────────────────── */
+/* ── Border-box for all elements ───────────────────────────── */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
-  transition-property: color, background-color, border-color, outline-color,
-    text-decoration-color, fill, stroke, box-shadow;
-  transition-duration: 200ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Interactive elements get a slightly faster, more responsive transition */
-a, button {
-  transition-duration: 180ms;
+/*
+ * Theme-switch transitions — restricted to theme-related properties
+ * on visible text/interactive nodes to avoid painting `*`.
+ * The ThemeProvider uses document.startViewTransition where supported.
+ * This CSS handles the fallback for browsers without that API.
+ */
+body {
+  transition:
+    color 200ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+h1, h2, h3, h4, h5, h6,
+p, span, li, strong, small, label, td, th, blockquote, figcaption {
+  transition: color 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Interactive elements get color/bg transitions on hover/focus */
+a,
+button {
+  transition:
+    color 180ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 180ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 180ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 180ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 180ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Elements that have border-color or outline-color transitions */
+input,
+select,
+textarea,
+[data-hover-target] {
+  transition:
+    border-color 200ms cubic-bezier(0.4, 0, 0.2, 1),
+    outline-color 200ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* ── View Transitions (smooth crossfade on theme toggle) ──── */
@@ -161,10 +191,19 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  /*
+   * Simplified noise — using a base64 PNG data-URI instead of an SVG filter
+   * to avoid the expensive feTurbulence re-paint on every animation frame.
+   * 64×64 grey noise @ ~2.5 KB base64, repeated across the viewport.
+   */
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6lwAAF2+XqZnUAAAAlElEQVR42uzVMQ6AMAwDwfwf2Jk6MCHxQ4eKjogz4M6YpNRaMbOzcxkREaK7uxQRAACAv7s7IiIiIiIipdR7X3d3ERERERHp7u5ez4iIiIhId/fn8+4+IiIiIt3d3d3dRURERERE3d3d3UVERERERERE3d3dpZQaIyIiIiIiIiIiIiIiMsYQERERERHp7j7nFBGR/wQAAAD//wMA1T5dEQjNOHIAAAAASUVORK5CYII=);
+  background-repeat: repeat;
+  background-size: 48px 48px;
   opacity: 0.045;
   pointer-events: none;
   z-index: 10;
+  /* Paint + layout containment prevents repainting outside bounds */
+  contain: paint layout;
 }
 
 
@@ -182,6 +221,13 @@ body::before {
 
 /*
  * ─── Custom Cursor ───────────────────────────────────────────
+ *
+ * ⚠️  Position is set via translate3d(x, y, 0) in JS (GPU composited).
+ *     This means CSS transform is NOT available for centering.
+ *     Instead, negative margins center the element:
+ *       margin = -(width/2)
+ *
+ *     ✦ Keep margin values in sync with width/height when changing cursor size!
  */
 
 .cursor {
@@ -193,8 +239,11 @@ body::before {
   border-radius: 999px;
   opacity: 0;
   z-index: 1000;
-  transform: translate(-50%, -50%);
+  /* ⚡ translate3d set by JS — centered via margin: -(10/2) = -5px */
+  margin-left: -5px;
+  margin-top: -5px;
   mix-blend-mode: difference;
+  will-change: transform;
 }
 
 .cursor-ring {
@@ -206,7 +255,10 @@ body::before {
   border-radius: 999px;
   opacity: 0;
   z-index: 1000;
-  transform: translate(-50%, -50%);
+  /* ⚡ translate3d set by JS — centered via margin: -(36/2) = -18px */
+  margin-left: -18px;
+  margin-top: -18px;
+  will-change: transform;
 }
 
 .cursor.is-visible,
@@ -217,11 +269,17 @@ body::before {
 .cursor.hover {
   width: 16px;
   height: 16px;
+  /* ✦ margin = -(16/2) = -8px — keep in sync with width/height above */
+  margin-left: -8px;
+  margin-top: -8px;
 }
 
 .cursor-ring.hover {
   width: 56px;
   height: 56px;
+  /* ✦ margin = -(56/2) = -28px — keep in sync with width/height above */
+  margin-left: -28px;
+  margin-top: -28px;
   border-color: color-mix(in srgb, var(--c-accent) 68%, transparent);
 }
 
@@ -293,12 +351,21 @@ body::before {
   width: max-content;
   animation: tickerScroll 20s linear infinite;
   white-space: nowrap;
+  will-change: transform;
 }
 
 /*
  * ─── Reduced motion ──────────────────────────────────────────
  * Respects the user's OS-level motion preference.
  */
+
+/* ── Section-level content-visibility for below-fold perf ─── */
+/* Exclude the hero section (#home) since it's above the fold */
+section:not([id="home"]),
+footer {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 500px;
+}
 
 @media (prefers-reduced-motion: reduce) {
   /* Stop the infinite ticker scroll — show items statically */
