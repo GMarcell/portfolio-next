@@ -8,6 +8,7 @@ export function PortfolioEffects() {
   const mouseRef = useRef({ x: 0, y: 0 });
   const ringRefPosition = useRef({ x: 0, y: 0 });
   const frameRef = useRef<number | null>(null);
+  const idleTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [isDesktopPointer, setIsDesktopPointer] = useState(false);
 
   const updateCursor = useEffectEvent((x: number, y: number) => {
@@ -61,6 +62,23 @@ export function PortfolioEffects() {
     const handlePointerMove = (event: PointerEvent) => {
       mouseRef.current = { x: event.clientX, y: event.clientY };
       updateCursor(event.clientX, event.clientY);
+
+      // Reset idle timer — stop ring rAF after 2s of inactivity
+      if (idleTimeoutRef.current) {
+        clearTimeout(idleTimeoutRef.current);
+      }
+
+      // If ring animation was stopped, restart it
+      if (frameRef.current === null) {
+        frameRef.current = window.requestAnimationFrame(animateRing);
+      }
+
+      idleTimeoutRef.current = setTimeout(() => {
+        if (frameRef.current) {
+          window.cancelAnimationFrame(frameRef.current);
+          frameRef.current = null;
+        }
+      }, 1000);
     };
 
     const animateRing = () => {
@@ -78,14 +96,17 @@ export function PortfolioEffects() {
       frameRef.current = window.requestAnimationFrame(animateRing);
     };
 
-    document.addEventListener("pointermove", handlePointerMove);
-    frameRef.current = window.requestAnimationFrame(animateRing);
+    document.addEventListener("pointermove", handlePointerMove, { passive: true });
 
     return () => {
       document.removeEventListener("pointermove", handlePointerMove);
 
       if (frameRef.current) {
         window.cancelAnimationFrame(frameRef.current);
+      }
+
+      if (idleTimeoutRef.current) {
+        clearTimeout(idleTimeoutRef.current);
       }
     };
   }, [isDesktopPointer]);

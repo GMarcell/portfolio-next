@@ -16,13 +16,13 @@ const dmMono = DM_Mono({
   subsets: ["latin"],
   weight: "400",
   variable: "--font-dm-mono",
-  display: "swap",
+  display: "optional",
 });
 
 const fraunces = Fraunces({
   subsets: ["latin"],
   variable: "--font-fraunces",
-  display: "swap",
+  display: "optional",
 });
 
 const siteUrl = "https://grandmarcell.dev";

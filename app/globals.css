@@ -118,17 +118,6 @@
  * The ThemeProvider uses document.startViewTransition where supported.
  * This CSS handles the fallback for browsers without that API.
  */
-body {
-  transition:
-    color 200ms cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 200ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-h1, h2, h3, h4, h5, h6,
-p, span, li, strong, small, label, td, th, blockquote, figcaption {
-  transition: color 200ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
 /* Interactive elements get color/bg transitions on hover/focus */
 a,
 button {
@@ -185,26 +174,12 @@ html {
 body {
   margin: 0;
   overflow-x: hidden;
+  transition:
+    color 200ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 200ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  /*
-   * Simplified noise — using a base64 PNG data-URI instead of an SVG filter
-   * to avoid the expensive feTurbulence re-paint on every animation frame.
-   * 64×64 grey noise @ ~2.5 KB base64, repeated across the viewport.
-   */
-  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6lwAAF2+XqZnUAAAAlElEQVR42uzVMQ6AMAwDwfwf2Jk6MCHxQ4eKjogz4M6YpNRaMbOzcxkREaK7uxQRAACAv7s7IiIiIiIipdR7X3d3ERERERHp7u5ez4iIiIhId/fn8+4+IiIiIt3d3d3dRURERERE3d3d3UVERERERERE3d3dpZQaIyIiIiIiIiIiIiIiMsYQERERERHp7j7nFBGR/wQAAAD//wMA1T5dEQjNOHIAAAAASUVORK5CYII=);
-  background-repeat: repeat;
-  background-size: 48px 48px;
-  opacity: 0.045;
-  pointer-events: none;
-  z-index: 10;
-  /* Paint + layout containment prevents repainting outside bounds */
-  contain: paint layout;
-}
+
 
 
 

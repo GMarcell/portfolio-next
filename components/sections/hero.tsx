@@ -1,5 +1,11 @@
-import { resumeUrl, stack, stats } from "@/data/portfolio";
+import { Suspense } from "react";
+import dynamic from "next/dynamic";
+import { resumeUrl } from "@/data/portfolio";
 import { DownloadIcon } from "@/components/ui/icons";
+
+const HeroStatsCard = dynamic(
+  () => import("@/components/sections/hero-stats-card").then((mod) => mod.HeroStatsCard)
+);
 
 export function HeroSection() {
   return (
@@ -93,34 +99,31 @@ export function HeroSection() {
         className="hero-right-desktop relative z-1 flex items-center justify-end"
         data-reveal
       >
-        <div className="relative w-85 p-10 border border-line bg-surface before:absolute before:-top-px before:left-8 before:right-8 before:h-0.5 before:bg-linear-to-r before:from-transparent before:via-accent before:to-transparent">
-          <div className="grid grid-cols-2 gap-6 mb-8">
-            {stats.map((stat) => (
-              <div className="stat-item" key={stat.label}>
-                <div className="mb-[0.3rem] text-accent font-syne font-extrabold text-[2.2rem] leading-none">
-                  {stat.value}
-                </div>
-                <div className="text-content/70 text-[11px] tracking-wider uppercase">
-                  {stat.label}
-                </div>
+        <Suspense
+          fallback={
+            <div className="w-85 p-10 border border-line bg-surface before:absolute before:-top-px before:left-8 before:right-8 before:h-0.5 before:bg-linear-to-r before:from-transparent before:via-accent before:to-transparent">
+              <div className="grid grid-cols-2 gap-6 mb-8">
+                {[1, 2, 3, 4].map((i) => (
+                  <div key={i}>
+                    <div className="mb-[0.3rem] h-9 w-20 bg-line/40 rounded-sm animate-pulse" />
+                    <div className="h-3 w-16 bg-line/30 rounded-sm animate-pulse mt-2" />
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-
-          <div className="text-accent mb-[0.8rem] text-[10px] tracking-widest uppercase">
-            Core Stack
-          </div>
-          <div className="flex flex-wrap gap-[0.4rem]">
-            {stack.map((item) => (
-              <span
-                key={item}
-                className="px-[0.7rem] py-1 border border-line bg-accent/6 text-content text-[11px] transition-colors duration-200 hover:border-accent hover:text-accent"
-              >
-                {item}
-              </span>
-            ))}
-          </div>
-        </div>
+              <div className="h-3 w-24 bg-line/30 rounded-sm animate-pulse mb-4" />
+              <div className="flex flex-wrap gap-[0.4rem]">
+                {[1, 2, 3, 4, 5, 6].map((i) => (
+                  <span
+                    key={i}
+                    className="h-7 w-16 bg-line/30 rounded-sm animate-pulse inline-block"
+                  />
+                ))}
+              </div>
+            </div>
+          }
+        >
+          <HeroStatsCard />
+        </Suspense>
       </div>
     </section>
   );

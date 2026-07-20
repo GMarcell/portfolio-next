@@ -1,6 +1,10 @@
+import dynamic from "next/dynamic";
 import { contactLinks, resumeUrl } from "@/data/portfolio";
-import { ContactForm } from "@/components/contact-form";
 import { DownloadIcon } from "@/components/ui/icons";
+
+const ContactForm = dynamic(
+  () => import("@/components/contact-form").then((mod) => mod.ContactForm)
+);
 
 export function ContactSection() {
   return (
