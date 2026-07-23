@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+import { ImageWithFade } from "@/components/ui/image-with-fade";
 import dynamic from "next/dynamic";
 import { resumeUrl } from "@/data/portfolio";
 import { DownloadIcon } from "@/components/ui/icons";
@@ -96,9 +97,21 @@ export function HeroSection() {
       </div>
 
       <div
-        className="hero-right-desktop relative z-1 flex items-center justify-end"
+        className="hero-right-desktop relative z-1 flex flex-col items-center gap-8"
         data-reveal
       >
+        {/* ── Profile picture ────────────────────────────────── */}
+        <div className="relative w-40 h-40 shrink-0 border-2 border-accent/20 bg-surface overflow-hidden">
+          <ImageWithFade
+            src="/images/profile.svg"
+            alt="Grand Marcell"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+
+        {/* ── Stats card ─────────────────────────────────────── */}
         <Suspense
           fallback={
             <div className="w-85 p-10 border border-line bg-surface before:absolute before:-top-px before:left-8 before:right-8 before:h-0.5 before:bg-linear-to-r before:from-transparent before:via-accent before:to-transparent">

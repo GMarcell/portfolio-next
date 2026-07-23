@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DM_Mono, Fraunces, Syne, Geist } from "next/font/google";
+import { Fraunces, Syne, Geist } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/layout/theme-provider";
 import { cn } from "@/lib/utils";
@@ -10,13 +10,6 @@ const syne = Syne({
   subsets: ["latin"],
   variable: "--font-syne",
   display: "swap",
-});
-
-const dmMono = DM_Mono({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-dm-mono",
-  display: "optional",
 });
 
 const fraunces = Fraunces({
@@ -133,7 +126,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn(syne.variable, dmMono.variable, fraunces.variable, geist.variable, "scroll-smooth")}
+      className={cn(syne.variable, fraunces.variable, geist.variable, "scroll-smooth")}
       suppressHydrationWarning
     >
       <head>
@@ -141,11 +134,12 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
 
         {/* ══════════════ Font preconnects ═══════════════════════ */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" fetchPriority="high" />
         <link
           rel="preconnect"
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
+          fetchPriority="high"
         />
         {/* ══════════════ JSON-LD structured data ═════════════ */}
         <script

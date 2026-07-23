@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import dynamic from "next/dynamic";
 import { contactLinks, resumeUrl } from "@/data/portfolio";
 import { DownloadIcon } from "@/components/ui/icons";
@@ -5,6 +6,19 @@ import { DownloadIcon } from "@/components/ui/icons";
 const ContactForm = dynamic(
   () => import("@/components/contact-form").then((mod) => mod.ContactForm)
 );
+
+/* ── Form skeleton (matches ContactForm layout) ──────────── */
+function FormSkeleton() {
+  return (
+    <div className="flex flex-col gap-5" aria-hidden="true">
+      <div className="h-11 w-full border border-line/40 bg-line/10 rounded-sm animate-pulse" />
+      <div className="h-11 w-full border border-line/40 bg-line/10 rounded-sm animate-pulse" />
+      <div className="h-11 w-full border border-line/40 bg-line/10 rounded-sm animate-pulse" />
+      <div className="h-28 w-full border border-line/40 bg-line/10 rounded-sm animate-pulse" />
+      <div className="h-12 w-36 bg-accent/20 rounded-sm animate-pulse" />
+    </div>
+  );
+}
 
 export function ContactSection() {
   return (
@@ -75,7 +89,9 @@ export function ContactSection() {
           <div className="inline-flex items-center gap-[0.6rem] px-[0.8rem] py-[0.35rem] mb-8 border border-accent/24 bg-accent/10 text-accent text-[11px] tracking-widest uppercase before:w-1.75 before:h-1.75 before:rounded-full before:bg-accent before:animate-[pulse_2s_infinite]">
             Open to opportunities
           </div>
-          <ContactForm />
+          <Suspense fallback={<FormSkeleton />}>
+            <ContactForm />
+          </Suspense>
         </div>
       </div>
     </section>

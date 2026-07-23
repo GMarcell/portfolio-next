@@ -17,7 +17,7 @@
 
   --font-syne: var(--font-syne), sans-serif;
   --font-fraunces: var(--font-fraunces), serif;
-  --font-dm-mono: var(--font-dm-mono), monospace;
+
 }
 
 /* ── Light theme (default) ─────────────────────────────────── */
@@ -113,31 +113,13 @@
 }
 
 /*
- * Theme-switch transitions — restricted to theme-related properties
- * on visible text/interactive nodes to avoid painting `*`.
+ * Theme-switch transitions — applied via Tailwind utilities on specific elements instead of globally.
  * The ThemeProvider uses document.startViewTransition where supported.
  * This CSS handles the fallback for browsers without that API.
+ *
+ * Only the body gets a lightweight theme color transition to avoid painting overhead
+ * on every interactive element in the DOM.
  */
-/* Interactive elements get color/bg transitions on hover/focus */
-a,
-button {
-  transition:
-    color 180ms cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 180ms cubic-bezier(0.4, 0, 0.2, 1),
-    border-color 180ms cubic-bezier(0.4, 0, 0.2, 1),
-    opacity 180ms cubic-bezier(0.4, 0, 0.2, 1),
-    transform 180ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Elements that have border-color or outline-color transitions */
-input,
-select,
-textarea,
-[data-hover-target] {
-  transition:
-    border-color 200ms cubic-bezier(0.4, 0, 0.2, 1),
-    outline-color 200ms cubic-bezier(0.4, 0, 0.2, 1);
-}
 
 /* ── View Transitions (smooth crossfade on theme toggle) ──── */
 
@@ -174,14 +156,7 @@ html {
 body {
   margin: 0;
   overflow-x: hidden;
-  transition:
-    color 200ms cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 200ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-
-
-
 
 @media (hover: hover) and (pointer: fine) {
   body {
@@ -329,18 +304,19 @@ body {
   will-change: transform;
 }
 
+/* ── Section-level content-visibility for below-fold perf ─── */
+/* Exclude the hero section (#home) since it's above the fold */
+section:not([id="home"]),
+footer,
+nav:not(.fixed) {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 500px;
+}
+
 /*
  * ─── Reduced motion ──────────────────────────────────────────
  * Respects the user's OS-level motion preference.
  */
-
-/* ── Section-level content-visibility for below-fold perf ─── */
-/* Exclude the hero section (#home) since it's above the fold */
-section:not([id="home"]),
-footer {
-  content-visibility: auto;
-  contain-intrinsic-size: 1px 500px;
-}
 
 @media (prefers-reduced-motion: reduce) {
   /* Stop the infinite ticker scroll — show items statically */
@@ -509,7 +485,7 @@ footer {
   --color-accent-foreground: var(--accent-foreground);
   --color-accent: var(--accent);
   --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
+  --color-muted: var(--muted-foreground);
   --color-secondary-foreground: var(--secondary-foreground);
   --color-secondary: var(--secondary);
   --color-primary-foreground: var(--primary-foreground);

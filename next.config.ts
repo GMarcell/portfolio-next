@@ -11,13 +11,8 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
     minimumCacheTTL: 60 * 60 * 24 * 30, // 30 days
-  },
-
-  // ── Bundle Optimization ──────────────────────────────────────
-  experimental: {
-    optimizePackageImports: [
-      "@base-ui/react",
-    ],
+    dangerouslyAllowSVG: true,
+    contentDispositionType: "inline",
   },
 
   // ── Turbopack (workspace root fix) ───────────────────────────

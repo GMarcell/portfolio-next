@@ -47,7 +47,7 @@ export function ExperienceSection() {
               </p>
               {experience.impact && (
                 <p className="max-w-140 mt-3 pl-4 border-l-2 border-accent text-content/80 font-fraunces font-light text-[0.95rem] leading-[1.65]">
-                  <strong className="text-accent font-dm-mono font-normal text-[11px] tracking-[0.08em] uppercase">
+                  <strong className="text-accent font-mono font-normal text-[11px] tracking-[0.08em] uppercase">
                     Impact:
                   </strong>{" "}
                   {experience.impact}
