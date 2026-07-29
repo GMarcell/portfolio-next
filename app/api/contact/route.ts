@@ -34,7 +34,7 @@ function escapeHtml(text: string): string {
 export async function POST(request: NextRequest) {
   // ── Rate limiting ──────────────────────────────────────────
   const ip = getClientIp(request);
-  const { allowed, remaining, resetAt } = checkRateLimit(ip, {
+  const { allowed, remaining, resetAt } = await checkRateLimit(ip, {
     max: RATE_LIMIT_MAX,
     windowSeconds: RATE_LIMIT_WINDOW,
   });
@@ -52,6 +52,12 @@ export async function POST(request: NextRequest) {
       }
     );
   }
+
+  // Attach remaining quota to successful responses
+  const rateLimitHeaders = {
+    "X-RateLimit-Remaining": String(remaining),
+    "X-RateLimit-Reset": String(Math.ceil(resetAt / 1000)),
+  };
   try {
     const body = await request.json();
     const { name, email, message } = body as {
@@ -187,7 +193,7 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json(
       { message: "Message sent successfully!", id: data?.id },
-      { status: 200 }
+      { status: 200, headers: rateLimitHeaders }
     );
   } catch (err) {
     console.error("Contact API error:", err);

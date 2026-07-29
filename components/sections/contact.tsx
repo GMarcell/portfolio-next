@@ -44,26 +44,55 @@ export function ContactSection() {
           </p>
 
           <div className="flex flex-col gap-4">
-            {contactLinks.map((link) => (
-              <a
-                href={link.href}
-                key={link.label}
-                className="flex items-center gap-4 p-5 border border-line bg-surface text-content no-underline transition-all duration-200 hover:border-accent/34 hover:bg-accent/5"
-                {...(link.href.startsWith("https")
-                  ? { target: "_blank", rel: "noreferrer" }
-                  : {})}
-              >
-                <div className="flex shrink-0 items-center justify-center w-8 h-8 border border-accent/20 bg-accent/10 text-accent font-syne font-bold text-xs">
-                  {link.code}
-                </div>
-                <div>
-                  <strong className="block mb-[0.2rem] font-syne text-[13px] font-semibold text-content">
-                    {link.label}
-                  </strong>
-                  <span className="text-content/70 text-xs">{link.value}</span>
-                </div>
-              </a>
-            ))}
+            {contactLinks.map((link) => {
+              const isLink = link.href && link.href !== "#";
+              const linkClassName =
+                "flex items-center gap-4 p-5 border border-line bg-surface text-content no-underline transition-all duration-200 hover:border-accent/34 hover:bg-accent/5";
+
+              if (!isLink) {
+                return (
+                  <div
+                    key={link.label}
+                    className="flex items-center gap-4 p-5 border border-line bg-surface text-content"
+                  >
+                    <div className="flex shrink-0 items-center justify-center w-8 h-8 border border-accent/20 bg-accent/10 text-accent font-syne font-bold text-xs">
+                      {link.code}
+                    </div>
+                    <div>
+                      <strong className="block mb-[0.2rem] font-syne text-[13px] font-semibold text-content">
+                        {link.label}
+                      </strong>
+                      <span className="text-content/70 text-xs">
+                        {link.value}
+                      </span>
+                    </div>
+                  </div>
+                );
+              }
+
+              return (
+                <a
+                  href={link.href}
+                  key={link.label}
+                  className={linkClassName}
+                  {...(link.href.startsWith("https")
+                    ? { target: "_blank", rel: "noreferrer" }
+                    : {})}
+                >
+                  <div className="flex shrink-0 items-center justify-center w-8 h-8 border border-accent/20 bg-accent/10 text-accent font-syne font-bold text-xs">
+                    {link.code}
+                  </div>
+                  <div>
+                    <strong className="block mb-[0.2rem] font-syne text-[13px] font-semibold text-content">
+                      {link.label}
+                    </strong>
+                    <span className="text-content/70 text-xs">
+                      {link.value}
+                    </span>
+                  </div>
+                </a>
+              );
+            })}
 
             {/* ── Resume download ─────────────────────────────── */}
             <a

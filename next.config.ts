@@ -50,24 +50,10 @@ const nextConfig: NextConfig = {
             key: "Strict-Transport-Security",
             value: "max-age=63072000; includeSubDomains; preload",
           },
-          {
-            key: "Content-Security-Policy",
-            value: [
-              "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
-              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-              "font-src 'self' https://fonts.gstatic.com",
-              "img-src 'self' data: blob:",
-              "connect-src 'self'",
-              "frame-ancestors 'none'",
-              "base-uri 'self'",
-              "form-action 'self'",
-            ].join("; "),
-          },
-          {
-            key: "Cache-Control",
-            value: "public, max-age=0, must-revalidate",
-          },
+          // CSP is set dynamically in middleware.ts (nonce-based)
+          // Cache-Control is intentionally omitted here — Next.js sets its
+          // own cache headers for HTML pages, and setting a catch-all value
+          // on "/(.*)" would conflict with Next.js's /_next/static handling.
         ],
       },
       // ── Static assets: long cache ────────────────────────────
@@ -80,15 +66,9 @@ const nextConfig: NextConfig = {
           },
         ],
       },
-      {
-        source: "/_next/static/:path*",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "public, max-age=31536000, immutable",
-          },
-        ],
-      },
+      // /_next/static/:path* is intentionally NOT listed here — Next.js
+      // sets its own optimal Cache-Control headers for these files, and
+      // overriding them triggers a build warning and can break dev behavior.
     ];
   },
 };

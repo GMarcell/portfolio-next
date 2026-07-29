@@ -1,19 +1,23 @@
 /**
- * Simple in-memory sliding-window rate limiter.
+ * Hybrid rate limiter that supports both distributed (Upstash Redis)
+ * and in-memory backends.
  *
- * ⚠️  This is per-process — when deploying on serverless platforms
- *     (Vercel, Netlify) each invocation is isolated, so this only
- *     limits within a single request. For distributed rate limiting
- *     in production, use a database-backed or edge-based approach
- *     (e.g. Upstash Redis, Vercel KV, or Netlify Blobs).
+ * - When `UPSTASH_REDIS_REST_URL` + `UPSTASH_REDIS_REST_TOKEN` are set
+ *   (production on Vercel), it uses Upstash Redis for a distributed
+ *   sliding-window rate limit that works across serverless invocations.
+ * - Otherwise it falls back to a per-process in-memory store suitable for
+ *   local development.
  */
+
+import { getRedis } from "@/lib/redis";
+import { Ratelimit } from "@upstash/ratelimit";
+
+/* ── Types ────────────────────────────────────────────────── */
 
 interface RateLimitEntry {
   count: number;
   resetAt: number;
 }
-
-const store = new Map<string, RateLimitEntry>();
 
 export interface RateLimitConfig {
   /** Maximum number of requests allowed within the window. */
@@ -22,30 +26,54 @@ export interface RateLimitConfig {
   windowSeconds: number;
 }
 
+export interface RateLimitResult {
+  allowed: boolean;
+  remaining: number;
+  resetAt: number;
+}
+
 const defaults: RateLimitConfig = {
   max: 5,
   windowSeconds: 60,
 };
 
-/**
- * Checks and increments the rate limit for a given key.
- * Returns `{ allowed, remaining, resetAt }`.
- *
- * - `allowed`: whether the request is within the limit
- * - `remaining`: how many requests the caller can still make
- * - `resetAt`: Unix timestamp (ms) when the window resets
- */
-export function checkRateLimit(
-  key: string,
-  config: Partial<RateLimitConfig> = {}
-): { allowed: boolean; remaining: number; resetAt: number } {
-  const { max, windowSeconds } = { ...defaults, ...config };
-  const now = Date.now();
+/* ── Distributed (Upstash Redis) backend ──────────────────── */
 
+let _ratelimit: Ratelimit | null = null;
+
+/**
+ * Returns a cached `@upstash/ratelimit` sliding-window client, or `null`
+ * if Redis isn't configured.
+ */
+function getRatelimit(): Ratelimit | null {
+  if (_ratelimit) return _ratelimit;
+
+  const redis = getRedis();
+  if (!redis) return null;
+
+  _ratelimit = new Ratelimit({
+    redis,
+    limiter: Ratelimit.slidingWindow(defaults.max, `${defaults.windowSeconds} s`),
+    prefix: "ratelimit",
+    analytics: false,
+  });
+
+  return _ratelimit;
+}
+
+/* ── In-memory (fallback) backend ─────────────────────────── */
+
+const store = new Map<string, RateLimitEntry>();
+
+function checkInMemory(
+  key: string,
+  max: number,
+  windowSeconds: number
+): RateLimitResult {
+  const now = Date.now();
   const existing = store.get(key);
 
   if (!existing || now >= existing.resetAt) {
-    // First request or window expired — start a new window
     store.set(key, { count: 1, resetAt: now + windowSeconds * 1000 });
     return { allowed: true, remaining: max - 1, resetAt: now + windowSeconds * 1000 };
   }
@@ -60,10 +88,38 @@ export function checkRateLimit(
   };
 }
 
+/* ── Public API ───────────────────────────────────────────── */
+
 /**
- * Garbage-collects expired entries from the store.
- * Call periodically if you expect high traffic — otherwise the map
- * grows indefinitely. Called automatically every 5 minutes via setInterval.
+ * Checks the rate limit for a given key.
+ *
+ * Uses Upstash Redis when available (distributed across serverless
+ * invocations), otherwise falls back to a per-process in-memory store.
+ */
+export async function checkRateLimit(
+  key: string,
+  config: Partial<RateLimitConfig> = {}
+): Promise<RateLimitResult> {
+  const { max, windowSeconds } = { ...defaults, ...config };
+
+  // Try distributed rate limiting first
+  const ratelimit = getRatelimit();
+  if (ratelimit) {
+    const { success, remaining, reset } = await ratelimit.limit(key);
+    return {
+      allowed: success,
+      remaining,
+      resetAt: reset,
+    };
+  }
+
+  // Fallback: in-memory
+  return checkInMemory(key, max, windowSeconds);
+}
+
+/**
+ * Garbage-collects expired entries from the in-memory store.
+ * No-op when using the Redis backend.
  */
 export function purgeExpiredEntries(): void {
   const now = Date.now();
@@ -74,19 +130,17 @@ export function purgeExpiredEntries(): void {
   }
 }
 
-// Auto-cleanup every 5 minutes
+// Auto-cleanup the in-memory store every 5 minutes
 const CLEANUP_INTERVAL_MS = 5 * 60 * 1000;
 
 let cleanupTimer: ReturnType<typeof setInterval> | null = null;
 
-export function startCleanup(): void {
+function startCleanup(): void {
   if (cleanupTimer) return;
   cleanupTimer = setInterval(purgeExpiredEntries, CLEANUP_INTERVAL_MS);
-  // Allow the process to exit even if the timer is still running
   if (cleanupTimer && typeof cleanupTimer === "object" && "unref" in cleanupTimer) {
     cleanupTimer.unref();
   }
 }
 
-// Start cleanup on module load
 startCleanup();

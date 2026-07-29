@@ -1,3 +1,35 @@
+/* ── Shared types ─────────────────────────────────────────── */
+
+export interface ProjectItem {
+  number: string;
+  year: string;
+  title: string;
+  category: string;
+  accent: string;
+  tone: string;
+  productionHref: string;
+  githubLink: string;
+  summary: string;
+  impact: string;
+  screens: string[];
+  requirements: string[];
+  metrics: { value: string; label: string }[];
+  stack: string[];
+}
+
+export interface RealWorkItem {
+  number: string;
+  company: string;
+  title: string;
+  period: string;
+  confidential: string;
+  summary: string;
+  modules: string[];
+  role: string;
+  context: string;
+  stack: string[];
+}
+
 export const navLinks = [
   { href: "#about", label: "About" },
   { href: "#hire-fit", label: "Hire Fit" },
@@ -396,7 +428,7 @@ export const contactLinks = [
     code: "IN",
   },
   {
-    href: "",
+    href: "#",
     label: "Location",
     value: "Tangerang, Indonesia · Open to relocation",
     code: "LC",

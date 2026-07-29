@@ -24,6 +24,7 @@ export function ImageWithFade({
   fadeDuration = 500,
   onLoad,
   onError,
+  alt,
   ...props
 }: ImageWithFadeProps) {
   const [loaded, setLoaded] = useState(false);
@@ -48,6 +49,7 @@ export function ImageWithFade({
 
   return (
     <Image
+      alt={alt}
       className={cn(
         /* ── Base: hidden until loaded, then fade + scale ── */
         "transition-all ease-out will-change-transform will-change-opacity",

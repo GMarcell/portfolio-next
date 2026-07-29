@@ -107,7 +107,9 @@ export function HeroSection() {
             alt="Grand Marcell"
             fill
             className="object-cover"
+            sizes="160px"
             priority
+            fetchPriority="high"
           />
         </div>
 

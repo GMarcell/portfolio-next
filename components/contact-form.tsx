@@ -2,21 +2,9 @@
 
 import { useRef, useState } from "react";
 import { ChevronDownIcon } from "@/components/ui/icons";
+import { validateContactForm, type FieldErrors } from "@/lib/validation";
 
 type FormState = "idle" | "sending" | "success" | "error";
-
-interface FieldErrors {
-  name?: string;
-  email?: string;
-  message?: string;
-}
-
-interface FormPayload {
-  name: string;
-  email: string;
-  message: string;
-  interest: string;
-}
 
 /* ── Recruiter quick-select interest types ───────────────── */
 const interestTypes = [
@@ -32,30 +20,10 @@ export function ContactForm() {
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
   const [serverError, setServerError] = useState("");
 
-  const validate = (formData: FormData): FormPayload | null => {
-    const name = (formData.get("name") as string).trim();
-    const email = (formData.get("email") as string).trim();
-    const message = (formData.get("message") as string).trim();
-    const interest = (formData.get("interest") as string).trim();
-    const errors: FieldErrors = {};
-
-    if (!name || name.length < 2) {
-      errors.name = "Name is required (min 2 characters).";
-    }
-    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      errors.email = "Please enter a valid email address.";
-    }
-    if (!message || message.length < 10) {
-      errors.message = "Message must be at least 10 characters.";
-    }
-
+  const validate = (formData: FormData) => {
+    const { errors, payload } = validateContactForm(formData);
     setFieldErrors(errors);
-
-    if (Object.keys(errors).length > 0) {
-      return null;
-    }
-
-    return { name, email, message, interest };
+    return payload;
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {

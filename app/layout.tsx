@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import { Fraunces, Syne, Geist } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/layout/theme-provider";
 import { cn } from "@/lib/utils";
 
-const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
+const geist = Geist({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
 
 const syne = Syne({
   subsets: ["latin"],
@@ -15,7 +20,7 @@ const syne = Syne({
 const fraunces = Fraunces({
   subsets: ["latin"],
   variable: "--font-fraunces",
-  display: "optional",
+  display: "swap",
 });
 
 const siteUrl = "https://grandmarcell.dev";
@@ -118,11 +123,16 @@ const themeScript = `
   })();
 `;
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Read the CSP nonce set by middleware.ts — it's injected into the
+  // request headers so server components can access it via headers().
+  const headersList = await headers();
+  const nonce = headersList.get("x-nonce") || "";
+
   return (
     <html
       lang="en"
@@ -130,8 +140,21 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
-        {/* ══════════════ Theme initialisation ═══════════════════ */}
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        {/* ══════════════ Theme initialisation (nonced) ═════════ */}
+        <script nonce={nonce} dangerouslySetInnerHTML={{ __html: themeScript }} />
+
+        {/* ══════════════ Theme color (prevents white flash) ═══ */}
+        <meta
+          name="theme-color"
+          content="#f8f4ed"
+          media="(prefers-color-scheme: light)"
+        />
+        <meta
+          name="theme-color"
+          content="#071225"
+          media="(prefers-color-scheme: dark)"
+        />
+        <meta name="color-scheme" content="dark light" />
 
         {/* ══════════════ Font preconnects ═══════════════════════ */}
         <link rel="preconnect" href="https://fonts.googleapis.com" fetchPriority="high" />
@@ -141,8 +164,17 @@ export default function RootLayout({
           crossOrigin="anonymous"
           fetchPriority="high"
         />
-        {/* ══════════════ JSON-LD structured data ═════════════ */}
+        {/* ══════════════ Preload LCP image ════════════════════ */}
+        <link
+          rel="preload"
+          as="image"
+          href="/images/profile.svg"
+          fetchPriority="high"
+        />
+
+        {/* ══════════════ JSON-LD structured data (nonced) ══ */}
         <script
+          nonce={nonce}
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />

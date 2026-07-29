@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useEffectEvent, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export function PortfolioEffects() {
   const cursorRef = useRef<HTMLDivElement>(null);
@@ -11,16 +11,12 @@ export function PortfolioEffects() {
   const idleTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [isDesktopPointer, setIsDesktopPointer] = useState(false);
 
-  const updateCursor = useEffectEvent((x: number, y: number) => {
+  /** Set the cursor element's position using GPU-composited translate3d. */
+  function updateCursor(x: number, y: number) {
     const cursor = cursorRef.current;
-
-    if (!cursor) {
-      return;
-    }
-
-    // Use translate3d for GPU-accelerated compositing instead of left/top
+    if (!cursor) return;
     cursor.style.transform = `translate3d(${x}px, ${y}px, 0)`;
-  });
+  }
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(hover: hover) and (pointer: fine)");
