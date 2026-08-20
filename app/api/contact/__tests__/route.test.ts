@@ -2,9 +2,13 @@ import { describe, it, expect, vi, beforeEach } from "vitest";
 import { NextRequest } from "next/server";
 
 // Mock dependencies before importing the route
+type MockResendClient = {
+  emails: { send: typeof mockSendEmail };
+};
+
 const mockCheckRateLimit = vi.fn();
 const mockSendEmail = vi.fn();
-const mockGetResend = vi.fn(() => ({
+const mockGetResend = vi.fn<() => MockResendClient | null>(() => ({
   emails: { send: mockSendEmail },
 }));
 
@@ -204,6 +208,47 @@ describe("POST /api/contact", () => {
 
     expect(mockSendEmail).toHaveBeenCalledOnce();
     expect(mockSendEmail.mock.calls[0][0].to).toBe("recruiter@company.com");
+
+    vi.unstubAllEnvs();
+  });
+
+  it("uses CONTACT_FROM_EMAIL env var when set", async () => {
+    vi.stubEnv(
+      "CONTACT_FROM_EMAIL",
+      "Portfolio Contact <contact@grandmarcell.dev>"
+    );
+
+    const request = createPostRequest({
+      name: "Jane",
+      email: "jane@example.com",
+      message: "Hello! I'm interested in your profile for a role at our company.",
+      interest: "contract",
+    });
+
+    await POST(request);
+
+    expect(mockSendEmail).toHaveBeenCalledOnce();
+    expect(mockSendEmail.mock.calls[0][0].from).toBe(
+      "Portfolio Contact <contact@grandmarcell.dev>"
+    );
+
+    vi.unstubAllEnvs();
+  });
+
+  it("falls back to onboarding@resend.dev when CONTACT_FROM_EMAIL is unset", async () => {
+    vi.stubEnv("CONTACT_FROM_EMAIL", "");
+
+    const request = createPostRequest({
+      name: "Jane",
+      email: "jane@example.com",
+      message: "Hello! I'm interested in your profile for a role at our company.",
+      interest: "contract",
+    });
+
+    await POST(request);
+
+    expect(mockSendEmail).toHaveBeenCalledOnce();
+    expect(mockSendEmail.mock.calls[0][0].from).toBe("onboarding@resend.dev");
 
     vi.unstubAllEnvs();
   });

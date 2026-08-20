@@ -1,5 +1,6 @@
 /.next
 /node_modules
+*.tsbuildinfo
 
 # Keep lock file for reproducible CI builds
 # /package-lock.json

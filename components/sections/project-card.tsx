@@ -1,37 +1,14 @@
 import type { CSSProperties } from "react";
-import { ImageWithFade } from "@/components/ui/image-with-fade";
 import type { ProjectItem } from "@/data/portfolio";
 
-/* ── Map project title → slug for screenshot lookup ──────── */
-function projectSlug(title: string): string {
-  return title
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-|-$/g, "");
-}
-
 export function ProjectCard({ project }: { project: ProjectItem }) {
-  const slug = projectSlug(project.title);
-
   return (
     <article
-      className="project-card relative flex flex-col gap-[1.4rem] min-h-140 max-md:min-h-auto p-6 border border-line bg-surface overflow-hidden transition-all duration-200 hover:-translate-y-0.75 project-card-accent before:absolute before:inset-y-0 before:left-0 before:w-0.75 before:project-card-line"
+      className="project-card relative flex flex-col gap-[1.4rem] p-6 border border-line bg-surface overflow-hidden transition-all duration-200 hover:-translate-y-0.75 project-card-accent before:absolute before:inset-y-0 before:left-0 before:w-0.75 before:project-card-line"
       style={{ "--card-accent": project.accent } as CSSProperties}
       data-reveal
       data-hover-target="true"
     >
-      {/* ── Project screenshot ────────────────────────────── */}
-      <div className="relative w-full aspect-[3/2] border border-line/60 overflow-hidden -mx-6 -mt-6 mb-0.75">
-        <ImageWithFade
-          src={`/images/project-${slug}.svg`}
-          alt={`${project.title} — ${project.category} screenshot`}
-          fill
-          className="object-cover"
-          sizes="(max-width: 768px) 100vw, 50vw"
-          loading="lazy"
-        />
-      </div>
-
       <div className="flex justify-between gap-4 text-(--card-accent) text-[11px] tracking-[0.08em] uppercase">
         <span>{`Project ${project.number}`}</span>
         <span>{project.year}</span>
@@ -94,6 +71,31 @@ export function ProjectCard({ project }: { project: ProjectItem }) {
             </span>
           </div>
         ))}
+      </div>
+
+      {/* ── Measured quality signals (Lighthouse, mobile) ──── */}
+      <div title="Measured with Lighthouse (mobile) — Aug 2026">
+        <div className="mb-[0.7rem] project-card-label text-[11px] tracking-[0.08em] uppercase">
+          Measured Quality
+        </div>
+        <div
+          className="grid grid-cols-3 gap-[0.45rem]"
+          aria-label={`${project.title} measured quality`}
+        >
+          {project.quality.map((metric) => (
+            <div
+              key={metric.label}
+              className="flex flex-col items-center justify-center gap-1 px-2 py-2.5 border project-card-screen"
+            >
+              <strong className="project-card-metric font-syne font-extrabold text-[1.2rem] leading-none">
+                {metric.value}
+              </strong>
+              <span className="text-center text-content/60 text-[10px] tracking-[0.06em] uppercase leading-tight">
+                {metric.label}
+              </span>
+            </div>
+          ))}
+        </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-[1.05fr_0.95fr] gap-[1.3rem] items-start">

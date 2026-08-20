@@ -33,4 +33,10 @@ jobs:
         run: npm test
 
       - name: Build
+        # The build's env validation requires RESEND_API_KEY to be set.
+        # Use the real secret when configured; a placeholder otherwise
+        # (the key is never used at build time — Resend is lazily
+        # initialised only when the contact API is called).
         run: npm run build
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY || 'ci-placeholder' }}

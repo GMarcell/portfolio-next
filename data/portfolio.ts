@@ -1,5 +1,7 @@
 /* ── Shared types ─────────────────────────────────────────── */
 
+export type Metric = { value: string; label: string };
+
 export interface ProjectItem {
   number: string;
   year: string;
@@ -13,7 +15,10 @@ export interface ProjectItem {
   impact: string;
   screens: string[];
   requirements: string[];
-  metrics: { value: string; label: string }[];
+  metrics: Metric[];
+  /** Measured quality signals — Lighthouse scores (mobile), captured Aug 2026.
+   *  Re-measure with `bash scripts/measure-lighthouse.sh`. */
+  quality: Metric[];
   stack: string[];
 }
 
@@ -148,6 +153,11 @@ export const projects = [
       { value: "Solo", label: "Full-Stack Build" },
       { value: "Auto", label: "Conflict-Free Scheduling" },
     ],
+    quality: [
+      { value: "91", label: "Lighthouse Perf" },
+      { value: "93", label: "Lighthouse A11y" },
+      { value: "96", label: "Best Practices" },
+    ],
     stack: ["Next.js", "TypeScript", "Prisma", "Supabase", "Tailwind CSS"],
   },
   {
@@ -180,6 +190,11 @@ export const projects = [
       { value: "8", label: "Tracked Hunter Stats" },
       { value: "AI", label: "Weekly Plan Generation" },
       { value: "E–S", label: "Rank System" },
+    ],
+    quality: [
+      { value: "97", label: "Lighthouse Perf" },
+      { value: "100", label: "Lighthouse A11y" },
+      { value: "100", label: "Best Practices" },
     ],
     stack: [
       "Next.js 16",
@@ -220,6 +235,11 @@ export const projects = [
       { value: "AI", label: "Note Summarization" },
       { value: "Real-time", label: "Kanban Drag & Drop" },
     ],
+    quality: [
+      { value: "93", label: "Lighthouse Perf" },
+      { value: "87", label: "Lighthouse A11y" },
+      { value: "100", label: "Best Practices" },
+    ],
     stack: [
       "Next.js 16",
       "TypeScript",
@@ -257,7 +277,12 @@ export const projects = [
     ],
     metrics: [
       { value: "12", label: "Application Statuses" },
+      { value: "10", label: "Interview Types" },
       { value: "AI", label: "ATS Resume Tailoring" },
+    ],
+    quality: [
+      { value: "93", label: "Lighthouse Perf" },
+      { value: "85", label: "Lighthouse A11y" },
       { value: "60", label: "Unit Tests" },
     ],
     stack: [
@@ -300,6 +325,11 @@ export const projects = [
     metrics: [
       { value: "Live", label: "Gold & Stock Pricing" },
       { value: "12mo", label: "Budget History Tracking" },
+      { value: "CSV", label: "Import / Export" },
+    ],
+    quality: [
+      { value: "98", label: "Lighthouse Perf" },
+      { value: "93", label: "Lighthouse A11y" },
       { value: "23", label: "Unit Tests" },
     ],
     stack: [

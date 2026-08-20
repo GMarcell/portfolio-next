@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
 import { Fraunces, Syne, Geist } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 import { ThemeProvider } from "@/components/layout/theme-provider";
 import { cn } from "@/lib/utils";
@@ -188,6 +189,8 @@ export default async function RootLayout({
           Skip to main content
         </a>
         <ThemeProvider>{children}</ThemeProvider>
+        {/* ── Vercel Analytics (no-ops off Vercel) ──────────── */}
+        <Analytics />
       </body>
     </html>
   );

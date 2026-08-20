@@ -6,6 +6,31 @@ import { NextRequest, NextResponse } from "next/server";
 const RATE_LIMIT_MAX = 5; // requests per window
 const RATE_LIMIT_WINDOW = 60; // seconds
 
+/* ── Sender address ────────────────────────────────────────── */
+let warnedFromFallback = false;
+
+/**
+ * Returns the "from" address for outgoing emails.
+ *
+ * Set `CONTACT_FROM_EMAIL` to your verified Resend domain in production,
+ * e.g. `"Portfolio Contact <contact@grandmarcell.dev>"`. Until then we fall
+ * back to Resend's `onboarding@resend.dev` sandbox address, which only works
+ * while the sender is unverified — so we log a warning when using it.
+ */
+function getFromEmail(): string {
+  const configured = process.env.CONTACT_FROM_EMAIL;
+  if (configured) return configured;
+
+  if (!warnedFromFallback) {
+    warnedFromFallback = true;
+    console.warn(
+      "CONTACT_FROM_EMAIL is not set — using onboarding@resend.dev. " +
+        "Set CONTACT_FROM_EMAIL to a verified Resend domain to ensure delivery."
+    );
+  }
+  return "onboarding@resend.dev";
+}
+
 /* ── Helpers ───────────────────────────────────────────────── */
 
 /**
@@ -121,8 +146,7 @@ export async function POST(request: NextRequest) {
       process.env.CONTACT_EMAIL || "grand1310marcell@gmail.com";
 
     const { data, error } = await resend.emails.send({
-      // When you add a verified domain to Resend, update this "from" address.
-      from: "Portfolio Contact <onboarding@resend.dev>",
+      from: getFromEmail(),
       to: recipient,
       replyTo: email.trim(),
       subject: `Portfolio contact — ${safeName}`,

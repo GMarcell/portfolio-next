@@ -23,12 +23,14 @@ export function proxy(request: NextRequest) {
     // to IGNORE unsafe-inline (per CSP Level 3), breaking the app.
     // The nonce is still applied to <script> elements in the HTML for
     // documentation/future-proofing but is NOT listed in the CSP itself.
-    `script-src 'self' 'unsafe-inline'`,
+    // va.vercel-scripts.com is where @vercel/analytics loads its runtime.
+    `script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com`,
     // Styles: need unsafe-inline for Tailwind and shadcn utilities
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
     "font-src 'self' https://fonts.gstatic.com",
     "img-src 'self' data: blob:",
-    "connect-src 'self'",
+    // va.vercel-scripts.com also receives the analytics beacon requests
+    "connect-src 'self' https://va.vercel-scripts.com",
     "frame-ancestors 'none'",
     "base-uri 'self'",
     "form-action 'self'",
