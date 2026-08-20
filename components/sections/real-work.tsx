@@ -12,10 +12,11 @@ export default function RealWork() {
         Production work
       </div>
       <h2 className="m-0 mb-4 font-syne font-extrabold text-[clamp(2rem,4vw,3.5rem)] tracking-[-0.02em] leading-[1.05] text-content">
-        Real work shipped
+        Production Work
       </h2>
       <p className="max-w-120 m-0 mb-16 text-content/70 font-fraunces font-light text-[1.05rem]">
-        Live products used by real teams — not showcase builds.
+        Production systems used by internal teams in healthtech and hospital
+        operations.
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

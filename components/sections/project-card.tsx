@@ -29,7 +29,7 @@ export function ProjectCard({ project }: { project: ProjectItem }) {
 
       <p className="m-0 mt-[-0.4rem] pl-4 border-l-2 project-card-impact text-content/80 font-fraunces font-light text-[0.98rem] leading-[1.65]">
         <strong className="text-content font-mono font-normal text-[11px] tracking-[0.08em] uppercase">
-          Hiring signal:
+          What this demonstrates::
         </strong>{" "}
         {project.impact}
       </p>
@@ -59,10 +59,7 @@ export function ProjectCard({ project }: { project: ProjectItem }) {
         aria-label={`${project.title} metrics`}
       >
         {project.metrics.map((metric) => (
-          <div
-            key={metric.label}
-            className="min-w-0 p-4 px-[0.8rem] bg-bg/72"
-          >
+          <div key={metric.label} className="min-w-0 p-4 px-[0.8rem] bg-bg/72">
             <strong className="block mb-1 project-card-metric font-syne font-extrabold text-[1.4rem] leading-none">
               {metric.value}
             </strong>

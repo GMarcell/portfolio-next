@@ -350,7 +350,7 @@ export const experiences = [
     location: "South Jakarta",
     role: "Full Stack Engineer",
     description:
-      "Own the frontend across multiple product areas at a dental healthtech company — including a procurement system (7 modules), a scheduling system, and a clinical review module. Led the migration of internal procurement workflows from spreadsheets to a structured web app used by 50+ staff. Refactored large god components into single-responsibility units, making the codebase readable without a walkthrough.",
+      "Own the frontend across multiple product areas at a dental healthtech company — including a procurement system (7 modules), a scheduling system, and a clinical review module. Led the migration of internal procurement workflows from spreadsheets to a structured web app used by 50+ staff. Refactored large monolithic components into maintainable, single-responsibility modules.",
     impact:
       "Delivered 7 procurement modules in 6 months while maintaining existing systems. Reduced onboarding time for new frontend devs by cleaning up monolithic components.",
     tags: [
@@ -423,6 +423,18 @@ export const skillGroups = [
       { name: "C++", value: "60%" },
     ],
   },
+  {
+    title: "Quality Signals:",
+    items: [
+      { name: "Testing", value: "70%" },
+      { name: "Accessibility", value: "75%" },
+      { name: "Performance Optimization", value: "64%" },
+      { name: "Component Architecture", value: "83%" },
+      { name: "Form Handling", value: "90%" },
+      { name: "API Integration", value: "95%" },
+      { name: "Code Review", value: "95%" },
+    ],
+  },
 ];
 
 export const certifications = [
@@ -460,7 +472,7 @@ export const contactLinks = [
   {
     href: "#",
     label: "Location",
-    value: "Tangerang, Indonesia · Open to relocation",
+    value: "Tangerang, Indonesia · Open to relocation to Germany",
     code: "LC",
   },
 ];
@@ -511,4 +523,3 @@ export const realWork = [
     stack: ["React.js", "TypeScript", "Tailwind CSS", "Figma", "Scrum"],
   },
 ];
-

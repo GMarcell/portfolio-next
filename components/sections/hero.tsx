@@ -4,8 +4,10 @@ import dynamic from "next/dynamic";
 import { resumeUrl } from "@/data/portfolio";
 import { DownloadIcon } from "@/components/ui/icons";
 
-const HeroStatsCard = dynamic(
-  () => import("@/components/sections/hero-stats-card").then((mod) => mod.HeroStatsCard)
+const HeroStatsCard = dynamic(() =>
+  import("@/components/sections/hero-stats-card").then(
+    (mod) => mod.HeroStatsCard,
+  ),
 );
 
 export function HeroSection() {
@@ -16,7 +18,12 @@ export function HeroSection() {
     >
       <div
         className="absolute right-[-0.05em] bottom-[-0.1em] text-transparent font-syne font-extrabold text-[clamp(120px,18vw,260px)] leading-none whitespace-nowrap select-none"
-        style={{ WebkitTextStroke: "1px color-mix(in srgb, var(--c-accent) 6%, transparent)" } as React.CSSProperties}
+        style={
+          {
+            WebkitTextStroke:
+              "1px color-mix(in srgb, var(--c-accent) 6%, transparent)",
+          } as React.CSSProperties
+        }
       >
         DEV
       </div>
@@ -27,7 +34,8 @@ export function HeroSection() {
             Fullstack · Available
           </div>
           <div className="inline-flex items-center gap-[0.6rem] px-[0.8rem] py-[0.35rem] border border-accent/24 bg-accent/10 text-accent text-[11px] tracking-widest uppercase">
-            Open for Relocation · Remote / Hybrid / On-site
+            Open to Relocation to Germany · Frontend / Full-Stack Roles · EU
+            Blue Card Pathway
           </div>
         </div>
         <h1 className="m-0 mb-6 font-syne font-extrabold text-[clamp(3rem,6vw,5.5rem)] leading-[0.95] tracking-[-0.03em] text-content">
@@ -43,8 +51,8 @@ export function HeroSection() {
           experiences — from API design to responsive UI. I bring{" "}
           <strong className="text-content font-normal">Next.js</strong>,{" "}
           <strong className="text-content font-normal">TypeScript</strong>,
-          full-stack ownership, and the kind of product judgment that makes teams
-          easier to trust.
+          full-stack ownership, and the kind of product judgment that makes
+          teams easier to trust.
         </p>
         <div className="items-center flex-wrap">
           <div className="flex gap-4 mb-3">

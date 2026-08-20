@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "Grand Marcell | Fullstack Developer",
   description:
-    "Fullstack Developer who turns product ideas and designs into fast, polished web experiences. Next.js, TypeScript, React, API design, and production-grade full-stack engineering.",
+    "Frontend / Full-Stack Engineer building reliable React, Next.js, and TypeScript products for real users.",
   keywords: [
     "Fullstack Developer",
     "React",
@@ -137,12 +137,20 @@ export default async function RootLayout({
   return (
     <html
       lang="en"
-      className={cn(syne.variable, fraunces.variable, geist.variable, "scroll-smooth")}
+      className={cn(
+        syne.variable,
+        fraunces.variable,
+        geist.variable,
+        "scroll-smooth",
+      )}
       suppressHydrationWarning
     >
       <head>
         {/* ══════════════ Theme initialisation (nonced) ═════════ */}
-        <script nonce={nonce} dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <script
+          nonce={nonce}
+          dangerouslySetInnerHTML={{ __html: themeScript }}
+        />
 
         {/* ══════════════ Theme color (prevents white flash) ═══ */}
         <meta
@@ -158,7 +166,11 @@ export default async function RootLayout({
         <meta name="color-scheme" content="dark light" />
 
         {/* ══════════════ Font preconnects ═══════════════════════ */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" fetchPriority="high" />
+        <link
+          rel="preconnect"
+          href="https://fonts.googleapis.com"
+          fetchPriority="high"
+        />
         <link
           rel="preconnect"
           href="https://fonts.gstatic.com"

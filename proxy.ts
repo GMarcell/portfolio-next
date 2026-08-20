@@ -15,6 +15,8 @@ import { NextResponse, type NextRequest } from "next/server";
 export function proxy(request: NextRequest) {
   const nonce = crypto.randomUUID();
 
+  const isDev = process.env.NODE_ENV !== "production";
+
   const csp = [
     "default-src 'self'",
     // Scripts: unsafe-inline is required because Next.js injects its own
@@ -24,7 +26,8 @@ export function proxy(request: NextRequest) {
     // The nonce is still applied to <script> elements in the HTML for
     // documentation/future-proofing but is NOT listed in the CSP itself.
     // va.vercel-scripts.com is where @vercel/analytics loads its runtime.
-    `script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com`,
+    // unsafe-eval is required in development mode for React's debugging features.
+    `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""} https://va.vercel-scripts.com`,
     // Styles: need unsafe-inline for Tailwind and shadcn utilities
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
     "font-src 'self' https://fonts.gstatic.com",
